@@ -1,0 +1,72 @@
+@import './Utils.scss';
+%sticky {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+%bartitle {
+  font-size: 20px;
+  text-align: left;
+  padding: 0.1em 1em;
+  border-bottom: 1px solid #aeaeae;
+}
+%barborder {
+  border: 1px groove #e0ccff;
+  border-radius: 10px;
+}
+%mainpreviewwrapper {
+  flex: 0 1 100%;
+  max-width: 70%;
+  order: 0;
+}
+%rightsidebar {
+  flex: 0 1 100%;
+  max-width: 30%;
+  order: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+%righttopbar {
+  @extend %barborder;
+  flex: 0 1 100%;
+  background-color: #fff;
+}
+%rightbottombar {
+  flex: 0 1 100%;
+  margin-top: 50px;
+  background-color: #fff;
+  @extend %barborder;
+}
+%userrightsidebar {
+  flex: 0 1 30%;
+}
+%userrightmenu {
+  border: 0.8px solid #a366ff;
+}
+
+@mixin mediajudge($size, $sizenum) {
+  @if $size==1024px {}
+  @else if $size==812px {}
+  @else if $size==768px {}
+  @else if $size==736px {}
+  @else if $size==667px {
+    %barborder {
+      border-radius: 0px;
+    }
+  }
+  @else if $size==568px {}
+  @else if $size==414px {
+
+  }
+  @else if $size==375px {}
+  @else if $size==360px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()

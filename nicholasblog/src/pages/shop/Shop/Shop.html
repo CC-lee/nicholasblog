@@ -1,0 +1,49 @@
+<div class="shop">
+  <div class="main-container" ref="mainContainer">
+    <div class="agile_ecommerce_tabs">
+      <div class="agile_ecommerce_tab_left" v-for="item in items">
+        <div class="shop-contain">
+          <div class="hs-wrapper">
+            <img v-for="img in item.preview_img" :src="img" alt=" " class="img-responsive" width="100%" height="250" />
+            <img v-for="img in item.preview_img" :src="img" alt=" " class="img-responsive" width="100%" height="250" />
+            <div class="w3_hs_bottom">
+              <ul>
+                <li>
+                  <!-- <a href="javascript:;" @click="showModal(item)">-->
+                  <a href="javascript:;" v-stream:click="{ subject: showModal$, data: item }">
+                    <span class="fa fa-eye" aria-hidden="true"></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <h5>
+            <a href="javascript:;" @click="router(item.item_id)" v-if="item.item_name.length>15">{{item.item_name.substring(0, 14)}}...</a>
+            <a href="javascript:;" @click="router(item.item_id)" v-else>{{item.item_name}}</a>
+          </h5>
+          <div class="simpleCart_shelfItem">
+            <p>
+              <i class="item_price">${{item.unit_price}}</i>
+            </p>
+          </div>
+        </div>
+      </div>
+      <b-modal ref="itemDetailModal" size="lg" @hidden="hideModal" hide-footer centered hide-header>
+        <div class="detial-container">
+          <div class="detail-image">
+            <b-img :src="preview_img" alt="Responsive image" />
+          </div>
+          <div class="detail-text">
+            <h4>{{item.item_name}}</h4>
+            <h5>商品介绍：</h5>
+            <div class="text-content">
+              <p v-html="item.item_detail"></p>
+            </div>
+            <span class="price">${{item.unit_price}}</span>
+            <b-button variant="outline-primary" class="enter-btn" @click="router(item.item_id)">进入商品页面</b-button>
+          </div>
+        </div>
+      </b-modal>
+    </div>
+  </div>
+</div>

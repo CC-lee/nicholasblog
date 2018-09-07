@@ -1,0 +1,17 @@
+<div class="widgets box">
+  <div class="col-md-7 centre">
+    <ba-card cardTitle="管理者留言" baCardClass="with-scroller">
+      <textarea [froalaEditor]="options" [(froalaModel)]="message.content"></textarea>
+      <div id="img" class="image">
+        <img *ngFor="let image of img" [src]="image" class="img">
+      </div>
+      <p id="count">{{ textLength }}/200</p>
+      <div id="button-group">
+        <button class="btn btn-sm btn-info" (click)="updateAdminMessage()">
+          <span class="fa fa-cloud-upload"></span> 更新</button>
+        <button class="btn btn-sm btn-danger" (click)="cancleUpdate()">
+          <span class="fa fa-remove"></span> 取消</button>
+      </div>
+    </ba-card>
+  </div>
+</div>

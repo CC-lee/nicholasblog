@@ -1,0 +1,24 @@
+<div class="widgets box" id="imageEdit">
+  <div class="col-md-10 centre">
+    <div class="row">
+      <div class="col-md-5">
+        <ba-card cardTitle="相册图片" baCardClass="with-scroll" class="col-md-6">
+          <img id="pic">
+        </ba-card>
+
+      </div>
+      <div class="col-md-6">
+        <ba-card cardTitle="图片文字内容" baCardClass="with-scroller">
+          <textarea [froalaEditor]="options" [(ngModel)]="image.text_content"></textarea>
+          <p id="count">{{ textLength }}/200</p>
+        </ba-card>
+        <div id="button-group">
+          <button class="btn btn-sm btn-info" (click)="updateImage()">
+            <span class="fa fa-cloud-upload"></span> 更新</button>
+          <button class="btn btn-sm btn-danger" (click)="cancleUpdate()">
+            <span class="fa fa-remove"></span> 取消</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

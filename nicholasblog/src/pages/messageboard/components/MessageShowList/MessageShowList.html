@@ -1,0 +1,20 @@
+<div>
+  <b-card style="cursor:pointer">
+    <b-media @click="router(item._id)">
+      <b-img slot="aside" :src="item.user_avatar" width="64" height="64" alt="placeholder" />
+      <div  style="padding-bottom: 1.5%;">
+        <span class="message-name name">{{item.user_name}}</span>
+        <span class="message-name left" v-if="item.message_type==='admin'">
+          <span class="admin"> Admin</span>
+        </span>
+      </div>
+      <div v-html="item.content" class="show"></div>
+      <div>
+        <img v-for="img in item.img" :src="img" height="100" width="25%" style="padding:0 5px;">
+      </div>
+    </b-media>
+    <div class="message-actions">
+      <actions :item="item" :type="'message'" :kind="'preview'"></actions>
+    </div>
+  </b-card>
+</div>

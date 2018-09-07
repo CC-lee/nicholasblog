@@ -1,0 +1,24 @@
+<div class="article">
+  <article class="main-container">
+    <div class="main-wrapper">
+      <header class="main-header">
+        <div class="title">{{oneArticle.title}}</div>
+        <div class="create-date">
+          <p>{{oneArticle.create_date}}</p>
+        </div>
+      </header>
+      <div class="main-content">
+        <div class="article-content">
+          <section ref="articleContent" v-html="oneArticle.content" v-highlightjs v-video class="ql-editor fr-view text-content"></section>
+        </div>
+        <div class="actions-container">
+          <actions :item="oneArticle" :type="'article'" :kind="'main'"></actions>
+        </div>
+        <div id="comment"></div>
+        <div class="comments-container">
+          <comments :item="oneArticle" :comment="comments" :type="'article'"></comments>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>

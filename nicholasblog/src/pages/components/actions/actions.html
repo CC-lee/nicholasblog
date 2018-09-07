@@ -1,0 +1,19 @@
+<div class="blog-info">
+  <ul>
+    <li>
+      <i id="calendar-icon" class="fa fa-calendar act-comment"> </i>{{item.create_date.split(" ")[0]}}</li>
+    <li>
+      <div v-if="kind==='preview'">
+        <i id="comment-icon" class="fa fa-comments act-comment"></i>
+        <router-link :to="actions.link">{{item.comment_num}} 评论</router-link>
+      </div>
+      <div v-if="kind==='main'">
+        <i id="comment-icon" class="fa fa-comments act-comment"></i> {{item.comment_num}} 评论
+      </div>
+    </li>
+    <li @click="like" v-if="search">
+      <i id="like-icon" class="fa fa-heart" :class="item.like_status ? 'active' : ''"> </i>
+      <a href="javascript:;">{{item.like_num}} 赞 </a>
+    </li>
+  </ul>
+</div>

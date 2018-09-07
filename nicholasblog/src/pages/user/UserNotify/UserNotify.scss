@@ -1,0 +1,61 @@
+@import '../../Utils.scss';
+@import '../../Source.scss';
+.main-container {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.right-sidebar {
+  @extend %userrightsidebar;
+}
+.right-menu {
+  @extend %userrightmenu;
+}
+
+.main-wrapper {
+  flex: 0 1 70%;
+}
+.usernotify-content{
+  background-color: #F4F4F4;
+  width:90%;
+  margin:0 auto;
+}
+.usernotify {
+  font-size: 16px;
+  .content {
+    cursor: pointer;
+  }
+}
+.delete-icon {
+  position: absolute;
+  right: 1vw;
+  cursor: pointer;
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==1024px {}
+  @else if $size==812px {
+    .main-wrapper {
+      flex: 0 1 100%;
+    }
+    .right-sidebar {
+      display: none;
+    }
+  }
+  @else if $size==768px {}
+  @else if $size==736px {}
+  @else if $size==667px {
+
+  }
+  @else if $size==568px {}
+  @else if $size==414px {}
+  @else if $size==375px {}
+  @else if $size==360px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()

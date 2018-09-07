@@ -1,0 +1,29 @@
+<div class="widgets box" (click)="gets($event)">
+  <div class="col-md-6 centre">
+    <ba-card cardTitle="分类名称" baCardClass="with-scroll ">
+      <form>
+        <input id="title" class="form-control bg-white" type="text" name="title" [(ngModel)]="classify.classify">
+      </form>
+      <div class="button-group">
+        <button class="btn btn-sm btn-info" id="uploadClass">
+          <span class="fa fa-cloud-upload"></span> 提交</button>
+        <button class="btn btn-sm btn-danger" id="cancleUpload">
+          <span class="fa fa-remove"></span> 取消</button>
+      </div>
+    </ba-card>
+  </div>
+
+  <div class="col-md-6 centre">
+    <ba-card cardTitle="批量分类名称" baCardClass="with-scroll ">
+      <div class="form-group">
+        <textarea autosize class="form-control bg-white multiClassArea" id="multiClassText" rows="3" #multiClassText>
+
+        </textarea>
+      </div>
+      <div class="button-group">
+        <button class="btn btn-sm btn-info" id="uploadMultiClass">
+          <span class="fa fa-cloud-upload"></span> 提交</button>
+      </div>
+    </ba-card>
+  </div>
+</div>

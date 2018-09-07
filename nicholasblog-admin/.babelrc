@@ -1,0 +1,16 @@
+{
+  "presets": ["es2015","stage-0",[
+    "env",{
+      "targets": {
+        "browsers": ["ie >=8"]    //"> 1% in FR"
+      },
+      "useBuiltIns": false,   //"usage" false entry
+      "debug": true
+    }
+    ]],
+  "comments": false,
+  "env": {
+    "test": {
+    }
+  }
+}

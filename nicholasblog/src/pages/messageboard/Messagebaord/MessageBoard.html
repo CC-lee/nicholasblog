@@ -1,0 +1,26 @@
+<div class="messageboard" v-on:keydown="change($event)">
+  <div class="main-container">
+    <div class="main-wrapper">
+      <div class="messagesl">
+        <messagesl v-for="item in items" :item="item" v-if="showlist" class="messagesl-item" :key="item.id"></messagesl>
+      </div>
+      <div class="loadMore">
+        <button class="buttonload" v-if="loadMoreShow">
+          <i class="fa fa-circle-o-notch fa-spin"></i>加载中
+        </button>
+        <button class="buttonload" v-if="loadMoreSearch">
+          <i class="fa fa-circle-o-notch fa-spin"></i>加载中
+        </button>
+      </div>
+      <router-view style="margin-top:0px"></router-view>
+    </div>
+    <div class="right-sidebar">
+      <div id="rightabout" class="about-bar">
+        <aboutme></aboutme>
+      </div>
+      <div id="rightmessage" class="message-bar">
+        <updateinfo></updateinfo>
+      </div>
+    </div>
+  </div>
+</div>

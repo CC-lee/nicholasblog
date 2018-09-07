@@ -1,0 +1,73 @@
+@import '../../Utils.scss';
+@import '../../Source.scss';
+.main-container {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.right-sidebar {
+  @extend %userrightsidebar;
+}
+.right-menu {
+  @extend %userrightmenu;
+}
+.main-wrapper{
+  flex: 0 1 70%;
+}
+.main-content {
+  margin: 0 auto;
+  width: 90%;
+  background-color: #F4F4F4;
+}
+#userprofile {
+  font-size: 16px;
+  .button {
+    text-align: center;
+    button {
+      cursor: pointer;
+    }
+  }
+}
+.text {
+  float: right;
+}
+.input {
+  font-size: 15px;
+  height:auto;
+}
+.my-2 {
+  padding-top: 10px;
+}
+#inputer{
+  cursor: pointer;
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==1024px {}
+  @else if $size==812px {
+    .main-wrapper {
+      flex: 0 1 100%;
+    }
+    .right-sidebar {
+      display: none;
+    }
+  }
+  @else if $size==768px {}
+  @else if $size==736px {}
+  @else if $size==667px {}
+  @else if $size==568px {}
+  @else if $size==414px {
+    .text {
+      float: left;
+    }
+  }
+  @else if $size==375px {}
+  @else if $size==360px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()

@@ -1,0 +1,62 @@
+<div class="widgets box" (click)="gets($event)" id="itemCreate">
+  <div class="col-md-11 centre">
+    <div class="col-md-11 main">
+      <ba-card cardTitle="商品图片" baCardClass="with-scroll" class="image-wrapper">
+        <dropzone #droper [config]="config" [message]="'点击或把图片拖动到此处'" class="item-image">
+          <div id="dropzone-previews"></div>
+        </dropzone>
+        <div *ngIf="show" class="warnwords">图片数量达到上限</div>
+      </ba-card>
+      <ba-card cardTitle="商品介绍" baCardClass="with-scroller" class="text-wrapper">
+        <div class="form-group row">
+          <div class="col-md-4 input-name">
+            <p>商品名称</p>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control bg-white" type="text" name="title" [(ngModel)]="itemTemp.item_name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-4 input-name">
+            <p>单价</p>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control bg-white" type="text" name="title" [(ngModel)]="itemTemp.unit_price">
+          </div>
+        </div>
+        <textarea [froalaEditor]="options" [(froalaModel)]="itemTemp.item_detail"></textarea>
+      </ba-card>
+    </div>
+    <div class="col-md-10 centre">
+      <ba-card cardTitle="选择参数" baCardClass="with-scroll">
+        <form *ngIf="selectNumberShow" class="col-md-7 centre top">
+          <div class="form-group row">
+            <div class="input-name box col-md-4">
+              <p>选择项数量</p>
+            </div>
+            <div class="input-content box col-md-4">
+              <input class="form-control bg-white" type="text" name="title" [(ngModel)]="selects">
+            </div>
+            <span class="box col-md-4">
+              <button class="btn btn-sm btn-info" id="selectNumber">
+                <span class="fa fa-save"></span> 确定</button>
+            </span>
+          </div>
+        </form>
+        <app-selectItem [selects]="selects" [selectShow]="selectShow" [selectItems]="selectItems"></app-selectItem>
+        <div class="button-group">
+          <button class="btn btn-sm btn-success" id="reset">
+            <span class="fa fa-refresh"></span> 重置参数</button>
+        </div>
+      </ba-card>
+    </div>
+    <div id="grop" class="button-group">
+      <button class="btn btn-sm btn-info" disabled="true" id="updateTemp" #updateTemp>
+        <span class="fa fa-save"></span> 保存</button>
+      <button class="btn btn-sm btn-info" disabled="true" id="uploadItem" #uploadItem>
+        <span class="fa fa-cloud-upload"></span> 提交</button>
+      <button class="btn btn-sm btn-danger" id="cancleUpload">
+        <span class="fa fa-remove"></span> 取消</button>
+    </div>
+  </div>
+</div>

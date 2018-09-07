@@ -1,0 +1,20 @@
+<div ref="whole">
+  <b-modal id="modal1" ref="modal" size="lg" @hidden="turn" lazy>
+    <div slot="modal-header" style="display:inline-flex">
+      <img :src="message.user_avatar" alt="Smiley face" height="50" width="50">
+      <div class="message-name">{{message.user_name}}</div>
+      <span class="message-name" v-if="message.message_type==='admin'">
+        <span class="admin"> Admin</span>
+      </span>
+    </div>
+    <p v-html="message.content" class="text"></p>
+    <div v-if="image" class="message-images">
+      <img v-for="image in message.img" :src="image" class="message-image">
+    </div>
+    <div slot="modal-footer" class="w-100" id="message">
+      <div id="comment"></div>
+      <actions :item="message" :type="'message'" :kind="'main'" style="height:40px"></actions>
+      <comments :item="message" :comment="comments" :type="'message'"></comments>
+    </div>
+  </b-modal>
+</div>

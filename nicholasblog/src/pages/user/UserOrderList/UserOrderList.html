@@ -1,0 +1,17 @@
+<div class="main-container">
+  <div class="main-wrapper">
+    <div class="main-content">
+      <b-table striped hover :items="list" :fields="fields">
+        <template slot="actions" scope="row">
+          <b-button @click.stop="router(row.item._id)" class="texter"> 查看</b-button>
+          <b-button @click.stop="deleteOneOrder(row.item._id)" class="texter"> 删除</b-button>
+        </template>
+      </b-table>
+    </div>
+  </div>
+  <div class="right-sidebar">
+    <div class="right-menu">
+      <usernav></usernav>
+    </div>
+  </div>
+</div>

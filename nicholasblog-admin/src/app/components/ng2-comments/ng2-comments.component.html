@@ -1,0 +1,7 @@
+<div>
+  <p *ngIf="show == false">本文章暂无评论</p>
+  <div class="commentAll">
+    <div *ngIf="show" [innerHtml]="commentsCode | html" class="comment-show">
+    </div>
+  </div>
+</div>

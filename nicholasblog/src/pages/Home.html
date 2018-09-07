@@ -1,0 +1,25 @@
+<div class="main-container">
+  <div class="main-wrapper">
+    <div class="articlesl" v-if="items.length>0">
+      <articlesl v-for="item in items" :item="item" :key="item.id" v-if="item.classify!=='Resume'"></articlesl>
+    </div>
+    <div class="loadMore">
+      <button class="buttonload" v-if="loadMoreShow">
+        <i class="fa fa-circle-o-notch fa-spin"></i>加载中
+      </button>
+      <button class="buttonload" v-if="loadMoreSearch">
+        <i class="fa fa-circle-o-notch fa-spin"></i>加载中
+      </button>
+    </div>
+  </div>
+  <div class="right-sidebar">
+    <div id="rightabout" class="about-bar">
+      <aboutme></aboutme>
+    </div>
+    <div class="message-bar">
+      <updateinfo></updateinfo>
+    </div>
+  </div>
+  <footer class="loadMore">
+  </footer>
+</div>

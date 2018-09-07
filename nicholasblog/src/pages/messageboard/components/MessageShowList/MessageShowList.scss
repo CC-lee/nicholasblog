@@ -1,0 +1,63 @@
+@import '../../../Utils.scss';
+@import '../../../Source.scss';
+.show {
+  font-size: 13px;
+}
+.fr-emoticon-img {
+  background-repeat: no-repeat !important;
+  font-size: 15px;
+  height: 1em;
+  width: 1em;
+  min-height: 20px;
+  min-width: 20px;
+  display: inline-block;
+  margin: -0.1em 0.1em 0.1em;
+  line-height: 15px;
+  vertical-align: middle
+}
+.message-actions {
+  height: 30px;
+  width: 100%;
+  padding-left: 15%;
+}
+.message-name {
+  font-size: 1rem;
+  &.name{
+    font-weight: 500;
+  }
+  &.left{
+    padding-left: 2%;
+  }
+  .admin{
+    border-radius: 25px;
+    background-color: rgb(238, 88, 88);
+    padding: 0.7% 1%;
+  }
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==1024px {}
+  @else if $size==812px {
+    .show {
+      max-height: 200px;
+      overflow: hidden;
+    }
+    .message-actions {
+      padding-left: 0;
+    }
+  }
+  @else if $size==768px {}
+  @else if $size==736px {}
+  @else if $size==667px {}
+  @else if $size==568px {}
+  @else if $size==414px {}
+  @else if $size==375px {}
+  @else if $size==360px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()

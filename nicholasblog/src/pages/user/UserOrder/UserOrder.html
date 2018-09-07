@@ -1,0 +1,51 @@
+<div class="main-container">
+  <div class="main-wrapper">
+    <div class="main-content">
+      <div class="main-bar">
+        <div class="product">
+          <h3>商品</h3>
+        </div>
+        <div class="quantity">
+          <h3>数量</h3>
+        </div>
+        <div class="price">
+          <h3>价格</h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="items">
+        <div class="item1" v-for="list in lists">
+          <div class="item-content">
+            <div class="image1">
+              <img :src="list.item_img" alt="item1" width="100%" height="100">
+            </div>
+            <div class="title1">
+              <a href="javascript:;" @click="router(list.item_id)">{{list.item_name}}</a>
+              <div class="option">
+                <p>商品选项:</p>
+                <p v-for="option in list.item_option">{{option.name}}: {{option.value}}</p>
+              </div>
+            </div>
+            <div class="quantity1">
+              {{list.quantity}}
+            </div>
+            <div class="price1">
+              <p>$ {{list.price}}</p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      <div class="total">
+        <span class="total1">总价</span>
+        <span class="total2">$ {{total}}</span>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="right-sidebar">
+    <div class="right-menu">
+      <usernav></usernav>
+    </div>
+  </div>
+</div>

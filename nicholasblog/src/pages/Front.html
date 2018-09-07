@@ -1,0 +1,40 @@
+<div class="main-container" id="frontMainContainer">
+  <div class="top-gallery">
+    <slick ref="slick" :options="slickOptions">
+      <img :src="`${filePrefix}cover/main-qimg-2b968ddb6d3e7b9791b21f1bd1fb33af.jpg`" height="200" width="100%" alt="">
+      <img :src="`${filePrefix}cover/main-qimg-7e278a349a8f18b80b2fead3da84cee3.jpg`" height="200" width="100%" alt="">
+      <img :src="`${filePrefix}cover/Beach-sunset-waves-beautiful-wallpaper-iphone.jpg`" height="200" width="100%" alt="">
+      <img :src="`${filePrefix}cover/purple_sky_over_the_castle_by_nickram.jpg`" height="200" width="100%" alt="">
+    </slick>
+  </div>
+  <div class="main-wrapper">
+    <div ref="topNav" class="top-nav">
+      <vhead></vhead>
+    </div>
+    <div id="main-content" class="main-content">
+      <div class="sub-content">
+        <div class="left-sidebar">
+          <div class="music-bar">
+            <keep-alive>
+              <music></music>
+            </keep-alive>
+          </div>
+          <div class="background-bar">
+            <keep-alive>
+              <background-bar></background-bar>
+            </keep-alive>
+          </div>
+        </div>
+        <div class="center-content">
+          <transition name="fade">
+            <router-view></router-view>
+          </transition>
+        </div>
+      </div>
+      <div class="footer">
+        <vfoot></vfoot>
+      </div>
+    </div>
+    <backtop></backtop>
+  </div>
+</div>

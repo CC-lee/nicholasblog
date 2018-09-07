@@ -1,0 +1,280 @@
+@import '../../Utils.scss';
+@import '../../Source.scss';
+.main-container {
+  display: flex;
+  display: -webkit-flex;
+  margin: auto;
+  padding: 0em 2em;
+  background: #4a245e;
+}
+.url-container {
+  flex: 0 1 500px;
+  -webkit-flex: 0 1 500px;
+  height: 40px;
+  overflow: hidden
+}
+.login-container {
+  flex: 0 1 120px;
+  -webkit-flex: 0 1 120px;
+  display: flex;
+}
+.login-url {
+  flex: 1 1 50px;
+  -webkit-flex: 1 1 50px;
+  padding: 0 10px;
+  margin-top: 10px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  .link {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+.icon-container {
+  flex: 0 1 25vw;
+  -webkit-flex: 0 1 25vw;
+  padding-top: 10px;
+  display: none;
+}
+.icon-wrapper {
+  text-align: center;
+  width: 30px;
+  background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ccccff),
+    to(#9999ff));
+  border-radius: 6px;
+}
+.icon {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+}
+.icon:hover {
+  background-color: #ddd;
+}
+.route {
+  color: #000000;
+  text-decoration: none;
+}
+.sendmessage-container {
+  flex: 0 1 auto;
+  -webkit-flex: 0 1 auto;
+  margin-left: 0.2vw;
+}
+.sendmessage-button {
+  color: #fff;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.search-container {
+  flex: 0 1 8vw;
+  -webkit-flex: 0 1 8vw;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 4vw;
+}
+.search-container-active {
+  flex: 0 1 8vw;
+  -webkit-flex: 0 1 8vw;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 2vw;
+  input {}
+}
+.usermenu {
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+  cursor: pointer;
+  font-size: 14px;
+}
+.notify {
+  color: red;
+}
+.red-inform {
+  position: absolute;
+  left: 5px;
+  top: 45%;
+  width: 5px;
+  height: 5px;
+  background: red;
+  border-radius: 2px;
+}
+.side-nav {
+  width: 0px;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  font-family: "Lato", sans-serif;
+  height: 100%;
+}
+.nav-link {
+  position: absolute;
+  width: 70%;
+  top: 0;
+  bottom: 0;
+  background-color: #3E1463;
+  padding-top: 25%;
+  overflow-y: scroll;
+}
+.nav-link a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #A6BDDE;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+}
+.nav-link a:hover {
+  color: #f1f1f1;
+}
+.back-area {
+  position: absolute;
+  background-color: grey;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 30%;
+  opacity: 0.5;
+}
+.back-word {
+  position: absolute;
+  color: #fff;
+  opacity: 1;
+  z-index: 1;
+  right: 10%;
+  top: 40%;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  font-size: 1rem;
+  width: 16px;
+}
+.user-container {
+  flex: 0 1 10vw;
+  -webkit-flex: 0 1 10vw;
+  display: flex;
+  display: -webkit-flex;
+}
+.user-button {
+  flex: 0 1 50%;
+  -webkit-flex: 0 1 50%;
+}
+.user-avater {
+  flex: 0 1 50%;
+  -webkit-flex: 0 1 50%;
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==360px {}
+  @else if $size==375px {}
+  @else if $size==414px {
+    .user-button {
+      flex: 0 1 100%;
+      -webkit-flex: 0 1 100%;
+      max-width: 100%;
+    }
+    .user-avatar {
+      display: none;
+    }
+    .main-container {
+      padding: 0 5px;
+    }
+    .icon-container {
+      flex: 0 1 10vw;
+      -webkit-flex: 0 1 10vw;
+    }
+    .user-container {
+      flex: 0 1 10vw;
+      -webkit-flex: 0 1 10vw;
+    }
+    .sendmessage-container {
+      padding-left: 0px;
+    }
+    .sendmessage-button {
+      font-size: 0.8rem;
+      color: #fff;
+      cursor: pointer;
+    }
+    .search-container {
+      flex: 0 1 35vw;
+      padding-left: 10px;
+    }
+    .search-container-active {
+      flex: 0 1 30vw;
+      -webkit-flex: 0 1 30vw;
+      padding-left: 0px;
+    }
+  }
+  @else if $size==568px {}
+  @else if $size==667px {
+    .icon-container {
+      flex: 0 1 10vw;
+      -webkit-flex: 0 1 10vw;
+    }
+    .search-container-active {
+      margin-left: 1vw;
+    }
+    .search-container {
+      margin-left: 1vw;
+    }
+    .sendmessage-container {
+      margin-left: 1vw;
+    }
+  }
+  @else if $size==736px {}
+  @else if $size==768px {}
+  @else if $size==812px {
+    .icon-container {
+      display: block;
+    }
+    .url-container {
+      display: none;
+    }
+    .sendmessage-container {
+      margin-left: 10px;
+    }
+    .sendmessage-button {}
+    .user-container {
+      flex: 0 1 40vw;
+      -webkit-flex: 0 1 40vw;
+    }
+    .search-container {
+      flex: 0 1 30vw;
+      -webkit-flex: 0 1 30vw;
+      margin-left: 3vw;
+    }
+    .search-container-active {
+      flex: 0 1 30vw;
+      margin-left: 1vw;
+    }
+  }
+  @else if $size==1024px {
+    .icon-container {
+      flex: 0 1 15vw;
+      -webkit-flex: 0 1 15vw;
+    }
+    .search-container-active {
+      margin-left: 40px;
+    }
+    .search-container {
+      margin-left: 50px;
+    }
+    .sendmessage-container {
+      margin-left: 20px;
+    }
+  }
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()

@@ -1,0 +1,13 @@
+$middleAsset:setAsset();
+$assetsName: '/assets#{$middleAsset}';
+@function assetsName() {
+  @if $middleAsset != 'setAsset()' {
+    $assetsName: '/assets#{$middleAsset}';
+    @return $assetsName;
+  }
+  @else {
+    $assetsName: '/assets';
+    @return $assetsName;
+  }
+}
+$assetsName: assetsName()

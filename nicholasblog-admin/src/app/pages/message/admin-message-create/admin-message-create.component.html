@@ -1,0 +1,22 @@
+<div class="widgets box" (click)="gets($event)">
+  <div class="col-md-7 centre">
+    <ba-card cardTitle="管理者留言" baCardClass="with-scroller">
+      <dropzone #droper [config]="config" class="col-md-12" style="margin-bottom: 0;border: none;padding: 0 0;min-height: 0px;font-size: 15px; overflow:visible">
+        <textarea id="editor" [froalaEditor]="options" [(froalaModel)]="messageTemp.content"></textarea>
+        <div id="dropzone-previews"></div>
+      </dropzone>
+      <p id="count">{{ textLength }}/200</p>
+      <div *ngIf="show" class="warnwords">图片数量达到上限</div>
+      <button class="btn btn-sm btn-info fa fa-image" id="input" style="min-height:0px;padding:5px 5px;width:60px;height:30px; margin-top:5px; overflow-y: visible">
+        上传</button>
+      <div id="button-group">
+        <button class="btn btn-sm btn-info" disabled="true" id="updateTemp" #updateTemp>
+          <span class="fa fa-save"></span> 保存</button>
+        <button class="btn btn-sm btn-info" disabled="true" id="uploadMessage" #uploadMessage>
+          <span class="fa fa-cloud-upload"></span> 提交</button>
+        <button class="btn btn-sm btn-danger" id="cancleUpload">
+          <span class="fa fa-remove"></span> 取消</button>
+      </div>
+    </ba-card>
+  </div>
+</div>

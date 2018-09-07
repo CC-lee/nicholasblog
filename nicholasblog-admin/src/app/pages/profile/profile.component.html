@@ -1,0 +1,72 @@
+<div class="widgets box">
+  <div class="centre col-md-7">
+    <ba-card cardTitle="Profile Information" baCardClass="with-scroll" class="smart-table-container">
+      <div class="form-group">
+        <div class="col-md-12 row input">
+          <span class="col-md-2 input-name">
+            <p>邮箱</p>
+          </span>
+          <span class="col-md-9">
+            <input class="form-control bg-white" type="text" name="kindName" [(ngModel)]="profile.email" disabled>
+          </span>
+        </div>
+        <div class="col-md-12 row input">
+          <span class="col-md-2 input-name">
+            <p>名称</p>
+          </span>
+          <span class="col-md-9">
+            <input class="form-control bg-white" type="text" name="kindName" [(ngModel)]="profile.admin_name">
+          </span>
+        </div>
+        <div class="col-md-12 row input">
+          <div class="col-md-2 input-name">
+            <p>性别</p>
+          </div>
+          <div class="col-md-9 gender">
+            <input type="radio" name="gender" value="male" [(ngModel)]="profile.gender"> Male
+            <input type="radio" name="gender" value="female" [(ngModel)]="profile.gender"> Female
+            <input type="radio" name="gender" value="other" [(ngModel)]="profile.gender"> Other
+          </div>
+        </div>
+        <div class="col-md-12 row input">
+          <div class="col-md-2 input-name">
+            <p>头像</p>
+          </div>
+          <div class="col-md-9">
+            <div id="dropzone-previews"></div>
+            <button id="input" class="btn btn-sm btn-info fa fa-image" style="min-height:0px;padding:5px 5px;width:60px;height:30px; margin-top:5px">
+              <dropzone #dropzone [config]="conferg">
+              </dropzone>
+              上传</button>
+          </div>
+        </div>
+      </div>
+    </ba-card>
+    <ba-card cardTitle="Change Password" baCardClass="with-scroll" class="smart-table-container">
+      <div class="form-group">
+        <div class="col-md-12 row input">
+          <div class="col-md-2 input-name">
+            <p>新密码</p>
+          </div>
+          <div class="col-md-9">
+            <input class="form-control bg-white" type="password" name="kindName" [(ngModel)]="password">
+          </div>
+        </div>
+        <div class="col-md-12 row input">
+          <div class="col-md-2 input-name">
+            <p>重复密码</p>
+          </div>
+          <div class="col-md-9">
+            <input class="form-control bg-white" type="password" name="kindName" [(ngModel)]="repeatPassword">
+          </div>
+        </div>
+      </div>
+    </ba-card>
+    <div class="button-group">
+      <button class="btn btn-sm btn-info" (click)="modifyProfile()">
+        <span class="fa fa-cloud-upload"></span> 修改资料</button>
+      <button class="btn btn-sm btn-danger" (click)="cancleUpload()">
+        <span class="fa fa-remove"></span> 取消</button>
+    </div>
+  </div>
+</div>

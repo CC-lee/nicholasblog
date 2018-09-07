@@ -1,0 +1,45 @@
+<div class="widgets main-container" (click)="gets($event)">
+  <div class="row title-wrapper">
+    <div class="col-md-6">
+      <ba-card cardTitle="文章标题" baCardClass="with-scroll ">
+        <form>
+          <input id="title" class="form-control bg-white" type="text" name="title" [(ngModel)]="article.title">
+        </form>
+      </ba-card>
+    </div>
+    <div class="col-md-6">
+      <ba-card cardTitle="文章分类" baCardClass="with-scroller">
+        <div class="form-group  class-select">
+          <div class=" pr-0 border-right-0 with-chevron class-select-input">
+            <ng2-completer #classSelect class="completer-limit  bg-white" [inputClass]="'form-control'" [datasource]="dataService" [minSearchLength]="0"
+              (focus)="openCloseFocused = true" [(ngModel)]="article.classify" (opened)="onOpened($event)" (blur)="openCloseFocused = false"
+              (selected)="onQuoteSelected($event)" [openOnFocus]="true" [autoHighlight]="true" [fillHighlighted]="false">
+            </ng2-completer>
+          </div>
+          <div class="class-select-arrow p-0" (click)="onToggle()">
+            <div class="w-28 chevron-holder" [ngClass]="{'dropdown-open': openCloseFocused}">
+              <span class="chevron fa " style="color:black" [ngClass]="{'fa-chevron-down': !isOpen, 'fa-chevron-up': isOpen}"></span>
+            </div>
+          </div>
+        </div>
+      </ba-card>
+    </div>
+  </div>
+  <div class="row text-wrapper">
+    <div class="col-md-12">
+      <ba-card cardTitle="文章编辑器" baCardClass="with-scroll ">
+        <div id="edit" class="col-12" style="margin:auto">
+          <textarea #froalaEditor [froalaEditor]="EditorOption" [(froalaModel)]="article.content">Hello, Froala!</textarea>
+        </div>
+        <div class="col-md-11" id="button-group">
+          <button class="btn btn-sm btn-info" id="updateTemp" disabled="true" #updateTemp>
+            <span class="fa fa-save"></span> 保存</button>
+          <button class="btn btn-sm btn-info" id="uploadArticle" disabled="true" #uploadArticle>
+            <span class="fa fa-cloud-upload"></span> 提交</button>
+          <button class="btn btn-sm btn-danger" id="cancleUpload">
+            <span class="fa fa-remove"></span> 取消</button>
+        </div>
+      </ba-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+$totalsize:1200px;
+$totalIndex:1200;
+$screensize:(( 1366px, 1366/$totalIndex), ( 1024px, 1024/$totalIndex), (812px, 812/$totalIndex), (768px, 768/$totalIndex), (736px, 736/$totalIndex), (667px, 667/$totalIndex), (568px, 568/$totalIndex), (414px, 414/$totalIndex), (375px, 375/$totalIndex), ( 360px, 360/$totalIndex));
+//$screensize:((360px, 360/$totalIndex), (375px, 375/$totalIndex), (414px, 414/$totalIndex), (568px, 568/$totalIndex), (736px, 736/$totalIndex), (768px, 768/$totalIndex), (812px, 812/$totalIndex),(1024px, 1024/$totalIndex));
+// @mixin medijudge() {}
+// @mixin mediacyc() {}
+$leftbarwidth:300px;

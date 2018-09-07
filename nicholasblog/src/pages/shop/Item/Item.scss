@@ -1,0 +1,127 @@
+@import '../../Utils.scss';
+@import '../../Source.scss';
+.item {
+  .main-container {
+    padding-left: 10px;
+    position: relative;
+    display: flex;
+    background-color: #fff;
+    margin-bottom:20px;
+  }
+  .item-left {
+    flex: 0 1 60%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .item-right {
+    flex: 0 1 40%;
+    z-index: 0;
+    background-color: #fff;
+    padding-top: 20px;
+    padding-left: 30px;
+    h3 {
+      font-size: 1.5em;
+      color: #212121;
+      margin-bottom: 1em;
+    }
+  }
+  .item-description {
+    h5 {
+      color: #191f64;
+      font-size: 1em;
+      margin: 0;
+    }
+    p {
+      color: rgb(97, 96, 96);
+      line-height: 1.8em;
+      margin: 1em 0 0;
+    }
+  }
+  .text-content {
+    margin: 2em 0;
+    max-height: 200px;
+    overflow: auto;
+  }
+  .item-action {
+    position: relative;
+  }
+  .item-select {
+    padding-left:10px;
+    padding-right:10px;
+  }
+  .item-price {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #212121;
+    font-weight: 600;
+    position: relative;
+    padding-top:5px;
+  }
+  .addcart {
+    position: relative;
+    text-align: center;
+    padding-top:10px;
+    b-button {
+      display: inline-block;
+    }
+  }
+  .item-quality h5 {
+    text-transform: uppercase;
+    font-size: 1em;
+    color: #3c43a4;
+    margin: 0 0 1em;
+  }
+  .item-quality {
+    position: relative;
+    padding-left: 30%;
+  }
+  .plus {
+    display: inline-block;
+  }
+  .count {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+  }
+  .dialog-right {
+    display: inline-block;
+  }
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==1024px {
+    .item {
+      .item-right {
+        padding: 10px 10px;
+      }
+    }
+  }
+  @else if $size==812px {
+    .item {
+      .main-container {
+        flex-wrap: wrap;
+        align-content: center;
+      }
+      .item-left {
+        flex: 0 1 100%;
+      }
+      .item-right {
+        flex: 0 1 100%;
+      }
+    }
+  }
+  @else if $size==768px {}
+  @else if $size==736px {}
+  @else if $size==667px {}
+  @else if $size==568px {}
+  @else if $size==414px {}
+  @else if $size==375px {}
+  @else if $size==360px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()

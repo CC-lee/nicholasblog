@@ -1,0 +1,102 @@
+<div>
+  <div class="main-container">
+    <ul class="cl-effect-16 top-nag url-container">
+      <li>
+        <router-link to="/home" data-hover="主页">主页</router-link>
+      </li>
+      <li>
+        <router-link to="/tags" data-hover="标签">标签</router-link>
+      </li>
+      <li>
+        <router-link to="/messageboard" data-hover="留言板">留言板</router-link>
+      </li>
+      <li>
+        <router-link to="/album" data-hover="相册">相册</router-link>
+      </li>
+      <li>
+        <router-link to="/shop" data-hover="商店">商店</router-link>
+      </li>
+      <li>
+        <router-link to="/about" data-hover="关于">关于</router-link>
+      </li>
+      <li>
+        <a :href="hostBackMainPath" data-hover="管理系统">管理系统</a>
+      </li>
+    </ul>
+    <div class="icon-container">
+      <div class="icon-wrapper">
+        <a href="javascript:void(0);" class="icon" @click="showSideBar()">&#9776;</a>
+      </div>
+    </div>
+    <div v-if="message" class="sendmessage-container">
+      <b-button class="fa fa-pencil-square-o sendmessage-button" variant="primary" v-b-modal.messageeditor>
+        发言</b-button>
+      <b-modal id="messageeditor" size="lg" centered title="撰写新留言" hide-footer title-tag="h4">
+        <sendmessage></sendmessage>
+      </b-modal>
+    </div>
+    <div id="search" class="search-container">
+      <div class="b-search">
+        <form action="#">
+          <input type="search" ref="searchInput" v-model="searchContent" v-on:focus="focusFun($event)" v-on:blur="blur($event)" v-on:keydown="searchFun($event)">
+          <input type="submit" id="searchSubmit" value="" @click="searchFun($event)">
+        </form>
+      </div>
+    </div>
+    <div v-if="loggedIn===false" class="login-container">
+      <div class="login-url">
+        <router-link to="/userLogin" data-hover="登录" class="link">登录</router-link>
+      </div>
+      <div class="login-url">
+        <router-link to="/userReg" data-hover="注册" class="link">注册</router-link>
+      </div>
+    </div>
+    <div v-if="loggedIn===true" class="user-container">
+      <div class="user-button">
+        <b-dropdown id="ddown-offset" size="" offset="25" variant="info" class="m-2 usermenu">
+          <template slot="button-content">
+            <span v-if="notifyNum > 0 || redInform" class="red-inform"></span>
+            <span class="username">{{profile.user_name}}</span>
+          </template>
+          <b-dropdown-item @click="router('userAccount')">
+            用户资料
+          </b-dropdown-item>
+          <b-dropdown-item @click="router('userPassword')">
+            修改密码
+          </b-dropdown-item>
+          <b-dropdown-item @click="router('userNotify')" v-if="notifyNum == 0">
+            用户通知
+          </b-dropdown-item>
+          <b-dropdown-item @click="router('userNotify')" class="notify" v-if="notifyNum > 0">
+            用户通知
+            <div style="float:right">{{notifyNum}}</div>
+          </b-dropdown-item>
+          <b-dropdown-item @click="router('shopCart')">
+            购物车
+          </b-dropdown-item>
+          <b-dropdown-item @click="router('userOrderList')">
+            购物订单
+          </b-dropdown-item>
+          <b-dropdown-item @click="signout()">注销</b-dropdown-item>
+        </b-dropdown>
+      </div>
+      <div class="user-avatar">
+        <b-img :src="profile.user_avatar" rounded="circle" width="50" height="45" blank-color="#777" alt="img" class="m-1" />
+      </div>
+    </div>
+  </div>
+  <div id="sideNav" ref="sideNav" class="side-nav">
+    <span class="nav-link" ref="navLink" id="navLink">
+      <router-link to="/home" data-hover="主页">主页</router-link>
+      <router-link to="/tags" data-hover="标签">标签</router-link>
+      <router-link to="/messageboard" data-hover="留言板">留言板</router-link>
+      <router-link to="/album" data-hover="相册">相册</router-link>
+      <router-link to="/shop" data-hover="商店">商店</router-link>
+      <router-link to="/about" data-hover="关于">关于</router-link>
+      <a :href="hostBackMainPath" data-hover="管理系统">管理系统</a>
+    </span>
+    <span ref="backArea" class="back-area" @click="backSideBar()">
+    </span>
+    <p class="back-word">点击此区域返回</p>
+  </div>
+</div>

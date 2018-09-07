@@ -1,0 +1,70 @@
+<div class="item">
+  <div class="main-container">
+    <div class="item-left">
+      <div v-html="itemhtml"></div>
+    </div>
+    <div class="item-right">
+      <h3>{{item.item_name}}</h3>
+      <div class="item-description">
+        <h5>
+          <i>商品介绍</i>
+        </h5>
+        <div class="text-content">
+          <p v-html="item.item_detail"></p>
+        </div>
+      </div>
+      <div class="item-action">
+        <div class="item-quality">
+          <h5>数量 :</h5>
+          <div class="quantity-select">
+            <button class="plus fa fa-plus" @click="plus"></button>
+            <div class="count">
+              <span>{{quantity}}</span>
+            </div>
+            <button class="minus fa fa-minus" @click="minus"></button>
+          </div>
+        </div>
+        <div class="item-select" v-if="item.item_option.length > 0">
+          <div v-for="(option, index) in item.item_option" :key="option.id">
+            <div v-if="option.select === '自定义种类'">
+              <b-form-group :label="option | kindOptionFun(`name`,option)">
+                <b-form-checkbox-group v-model="selectarray[`array${index}`]">
+                  <b-form-checkbox :value="`${k}`" @click.native="get($event,`array${index}`,index,option.kindOption.name)" :id="option.kindOption.name + k"
+                    v-for="k in option.kindOption.kind" :key="k.id">{{k}}</b-form-checkbox>
+                </b-form-checkbox-group>
+              </b-form-group>
+            </div>
+            <div v-if="option.select === '颜色'">
+              <b-form-group :label="option.colorName||'颜色选择'+`${index+1}`">
+                <b-form-checkbox-group v-model="selectarray[`array${index}`]">
+                  <b-form-checkbox :value="`${color.id}`"  @click.native="get($event,`array${index}`,index,option.colorName||'颜色选择'+`${index}`)" :id="(option.colorName||('颜色选择'+`${index}`))+color.id"  v-for="color in option.colorOption" :key="color.id">
+                    <b-img blank width="25" height="25" :blank-color="`${color.id}`" alt="hex shorthand color" class="m-1" />
+                  </b-form-checkbox>
+                </b-form-checkbox-group>
+              </b-form-group>
+            </div>
+          </div>
+        </div>
+
+        <div class="item-price">
+          价格: ${{item.unit_price}}
+        </div>
+        <div class="addcart">
+          <b-button variant="outline-info"  @click="shopCartInfo">加入购物车</b-button>
+        </div>
+      </div>
+    </div>
+    <b-modal ref="cartmodal" size="lg" hide-header hide-footer>
+      <div style="width:100%" class="row">
+        <div class="col-md-6">
+          <img :src="this.item.item_img[0]" alt=" " width="100%" height="250" />
+        </div>
+        <div class="col-md-6">
+          <p>{{this.item.item_name}} 成功加入购物车!</p>
+          <b-button variant="outline-success" @click="router('/shop')">继续购物</b-button>
+          <b-button variant="outline-success" @click="router(`/user/${profile._id}/shopCart`)">到购物车结算</b-button>
+        </div>
+      </div>
+    </b-modal>
+  </div>
+</div>

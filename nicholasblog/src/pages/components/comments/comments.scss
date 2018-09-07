@@ -1,0 +1,17 @@
+.commentAll  {
+  .comment-input {
+    font-size: 15px;
+    width: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
+    resize: none;
+  }
+  .comment-show a:hover {
+    text-decoration: none;
+    color: #8b8b8b;
+  }
+  .reviewArea a:hover, .hf-con a:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+}

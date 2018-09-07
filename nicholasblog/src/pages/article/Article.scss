@@ -1,0 +1,132 @@
+.article {
+  pre, code {
+    white-space: pre;
+    overflow-x: auto;
+    word-break: normal;
+    word-wrap: normal;
+  }
+  pre span {
+    white-space: pre;
+    overflow-x: auto;
+    word-break: normal;
+    word-wrap: normal;
+  }
+  .hljs {
+    overflow-x: auto;
+  }
+  .main-container {
+    width: 100%;
+  }
+  .main-wrapper {
+    max-width: 100%;
+    background-color: #fff;
+  }
+  .main-header {
+    padding-left: 60px;
+  }
+  .main-content {}
+  .title {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #404040;
+    padding: 1rem 0;
+  }
+  .create-date {
+    font-family: "Comic Sans MS", curslve, sans-serif;
+    padding: 0.6rem 0;
+    color: #7f8c8d;
+  }
+  .article-content {
+    /*color:#34495e;*/
+    line-height: 1.1em;
+    padding-top: 1rem;
+    padding-left: 60px;
+    padding-right: 60px;
+    height: 100%;
+  }
+  .article-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0 0;
+    padding: 0 0;
+  }
+  .article-content a {
+    word-break: break-all;
+  }
+  .article-content ol li {
+    list-style-type: decimal;
+    list-style-position: inside;
+    line-height: 150%;
+  }
+  .article-content ul li {
+    list-style-type: disc;
+    list-style-position: inside;
+    line-height: 150%;
+  }
+  .article-content .para {
+    margin: 0 auto;
+    line-height: 150%;
+  }
+  .article-content pre code {
+    font-size: 1rem;
+  }
+  .article-content pre code span {
+    font-size: 1rem;
+  }
+  .actions-container {
+    padding: 0 30px;
+    height: 35px
+  }
+  .comments-container {
+    padding: 0 30px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.17rem;
+  }
+  h4 {
+    font-size: 1.12rem;
+  }
+  h5 {
+    font-size: .83rem;
+  }
+  h6 {
+    font-size: .75rem;
+  }
+  @media screen and (max-width: 1024px) {}
+  @media screen and (max-width: 812px) {
+    .article-title {
+      font-size: 1.8rem;
+      padding-top: 0;
+    }
+    .main-header {
+      padding-left: 0px;
+      text-align: center;
+    }
+    .article-content {
+      padding-top: 0;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+  @media screen and (max-width: 768px) {}
+  @media screen and (max-width: 736px) {}
+  @media screen and (max-width: 667px) {}
+  @media screen and (max-width: 568px) {}
+  @media screen and (max-width: 414px) {
+    .article-content p {
+      font-size: 1rem;
+    }
+  }
+  @media screen and (max-width: 375px) {}
+  @media screen and (max-width: 360px) {
+    .article-content {
+      width: 375px;
+    }
+  }
+}

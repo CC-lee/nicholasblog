@@ -1,0 +1,62 @@
+<div class="reg">
+  <div class="reg-background">
+    <h1>请注册</h1>
+    <div class="message warning">
+      <div class="inset agile">
+        <div class="sap_tabs w3ls-tabs">
+          <div id="horizontalTab">
+            <div class="resp-tabs-list">
+              <div class="resp-tab-item" aria-controls="tab_item-0" role="tab">
+                <span>
+                  <router-link to="/userLogin" data-hover="登录" class="link">登录</router-link>
+                </span>
+              </div>
+              <div class="resp-tab-item resp-tab-active" aria-controls="tab_item-1" role="tab">
+                <label>/</label>
+                <span>
+                  <router-link to="/userReg" data-hover="注册" class="activeLink">注册</router-link>
+                </span>
+              </div>
+            </div>
+            <div class="clear"> </div>
+            <b-form-group style="margin-bottom:0px">
+              <b-row class="input-contain">
+                <b-col sm="3" class="text-contain">
+                  <label for="input-large1" class="text" style="margin-bottom:0px">邮箱地址:</label>
+                </b-col>
+                <b-col sm="9">
+                  <b-form-input class="input" id="input-large1" style="height: auto" type="text" placeholder="Enter your address" v-model="user.email"></b-form-input>
+                </b-col>
+              </b-row>
+              <b-row class="input-contain">
+                <b-col sm="3" class="text-contain">
+                  <label for="input-large2" class="text" style="margin-bottom:0px">用户名:</label>
+                </b-col>
+                <b-col sm="9">
+                  <b-form-input class="input" id="input-large2" style="height: auto" type="text" placeholder="Enter your name" v-model="user.user_name"></b-form-input>
+                </b-col>
+              </b-row>
+              <b-row class="input-contain">
+                <b-col sm="3" class="text-contain">
+                  <label for="input-large3" class="text" style="margin-bottom:0px">密码:</label>
+                </b-col>
+                <b-col sm="9">
+                  <b-form-input class="input" id="input-large3" style="height: auto" type="password" placeholder="Enter your password" v-model="user.password"></b-form-input>
+                </b-col>
+              </b-row>
+              <b-row class="input-contain">
+                <b-col sm="3" class="text-contain">
+                  <label for="input-large4" class="text" style="margin-bottom:0px">重复密码:</label>
+                </b-col>
+                <b-col sm="9">
+                  <b-form-input class="input" id="input-large4" style="height: auto" type="password" placeholder="Repeat your password" v-model="repeat"></b-form-input>
+                </b-col>
+              </b-row>
+            </b-form-group>
+            <button class="signup" @click="signup()">注册</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

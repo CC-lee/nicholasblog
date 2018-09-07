@@ -1,0 +1,71 @@
+@import '../../Utils.scss';
+@import '../../Source.scss';
+.main-container {
+  list-style: none;
+  max-width: 100%;
+  padding-left: 5px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.album-container {
+  flex: 0 1 33%;
+  padding: 10px 5px;
+}
+.album-container .album-wrapper {
+  position: relative;
+}
+.album-container:hover .album-thumb {
+  opacity: 0.3;
+}
+.album-container:hover .album-cover {
+  opacity: 0.5;
+}
+.album-thumb {
+  height: 250px;
+  width: 100%;
+  background-color: #c2c2d6;
+}
+.album-cover {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0;
+  background-color: black;
+  cursor: pointer;
+}
+.cover-content {
+  position: absolute;
+  top:43%;
+  left:35%;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.1rem;
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==1024px {}
+  @else if $size==812px {}
+  @else if $size==768px {}
+  @else if $size==736px {}
+  @else if $size==667px {}
+  @else if $size==568px {}
+  @else if $size==414px {
+    .album-container {
+      flex: 0 1 49%;
+    }
+  }
+  @else if $size==375px {}
+  @else if $size==360px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()

@@ -1,0 +1,123 @@
+.centre {
+  margin: 0 auto;
+}
+.main-bar {
+  padding: 20px 0px;
+  background-color: #a3a3c2;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+.main-bar h3 {
+  color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+}
+.product {
+  width: 65%;
+  float: left;
+}
+.product h3 {
+  padding-left: 20px;
+}
+.quantity {
+  width: 15%;
+  float: left;
+  text-align: center;
+}
+.price {
+  width: 20%;
+  float: left;
+  text-align: center;
+}
+.clear {
+  clear: both;
+}
+.items {
+  padding: 20px 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+.item1, .item2, .item3 {
+  border-bottom: 1px solid #000;
+  position: relative;
+  padding-top: 10px;
+}
+.item-content{
+  display:flex;
+}
+.image1, .image2, .image3 {
+  flex: 0 1 20%;
+}
+.title1, .title2, .title3 {
+  flex: 0 1 45%;
+  line-height: 1;
+  padding:10px 10px;
+  background-color: #eaeafa;
+  a {
+    text-decoration: none;
+  }
+}
+.price1, .price2, .price3 {
+  width: 20%;
+  float: left;
+  text-align: center;
+}
+.option {
+  padding: 10px 10px;
+  border-top: 1px solid #000;
+  margin-top: 10px;
+}
+.quantity1, .quantity2, .quantity3 {
+  width: 15%;
+  float: left;
+  text-align: center;
+  color: #000;
+}
+.quantity1 input[type="number"], .quantity2 input[type="number"], .quantity3 input[type="number"] {
+  width: 70%;
+  margin-top: 0px;
+  padding: 5px 5px;
+  text-align: center;
+  margin-left: 10px;
+  font-size: 16px;
+  outline: none;
+  border: 2px solid #b6c0c9;
+  border-radius: 5px;
+  color: #27272c;
+}
+.total-container {
+  padding: 20px 50px;
+  margin: 10px 0;
+  background-color: #b3b3cc;
+  color: #47484a;
+  width: 100%;
+  position: relative;
+}
+.total-wrapper {
+  display: inline-block;
+  font-size: 16px;
+  position: absolute;
+  right: 20px;
+  top:5px;
+}
+.total1, .total2 {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #47484A;
+}
+.total2 {
+  text-align: right;
+}
+p {
+  color: #000;
+}
+#button-group {
+  margin-top: 10px;
+  text-align: center;
+}
+.bg-white {
+  background-color: #fff;
+  font-size: 15px;
+  color: #000;
+}

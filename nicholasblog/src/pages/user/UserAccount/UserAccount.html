@@ -1,0 +1,63 @@
+<div class="main-container">
+  <div class="main-wrapper">
+    <div class="main-content">
+      <b-card id="userprofile" header="用户资料" header-tag="header">
+        <b-row class="my-1">
+          <b-col sm="3">
+            <label for="input-large" class="text">邮箱:</label>
+          </b-col>
+          <b-col sm="9">
+            <b-form-input class="input" id="input-large" type="text" placeholder="Enter your email" disabled v-model="Profile.email"></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row class="my-1 my-2">
+          <b-col sm="3">
+            <label for="input-large" class="text">名称:</label>
+          </b-col>
+          <b-col sm="9">
+            <b-form-input class="input" id="input-large" type="text" placeholder="Enter your name" v-model="Profile.user_name"></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row class="my-1 my-2">
+          <b-col sm="3">
+            <label for="input-large" class="text">地区:</label>
+          </b-col>
+          <b-col sm="9">
+            <b-form-input class="input" id="input-large" type="text" placeholder="Enter your location" v-model="Profile.location"></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row class="my-1 my-2">
+          <b-col sm="3">
+            <label for="input-large" class="text">性别:</label>
+          </b-col>
+          <b-col sm="9">
+            <input type="radio" name="gender" value="male" v-model="Profile.gender"> Male
+            <input type="radio" name="gender" value="female" v-model="Profile.gender"> Female
+            <input type="radio" name="gender" value="other" v-model="Profile.gender"> Other
+          </b-col>
+        </b-row>
+        <b-row class="my-1 my-2">
+          <b-col sm="3">
+            <label for="input-large" class="text">头像:</label>
+          </b-col>
+          <b-col sm="9">
+            <div id="dropzone-previews"></div>
+            <button id="inputer" class="btn btn-info fa fa-image input" style="min-height:0px;padding:5px 5px;width:60px;height:30px; margin-top:5px">
+              <div id="dropzone3" class="dropzone"></div>
+              上传</button>
+          </b-col>
+        </b-row>
+        <div slot="footer" class="button">
+          <b-button v-if="updatable" variant="primary" @click="uploadImage()">更改</b-button>
+          <b-button v-if="updatable===false" variant="primary" disabled >更改</b-button>
+          <b-button variant="danger" @click="cancel()">取消</b-button>
+        </div>
+      </b-card>
+    </div>
+  </div>
+  <div class="right-sidebar">
+    <div class="right-menu">
+      <usernav></usernav>
+    </div>
+  </div>
+</div>

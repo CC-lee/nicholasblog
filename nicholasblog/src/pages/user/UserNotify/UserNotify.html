@@ -1,0 +1,21 @@
+<div class="main-container">
+  <div class="main-wrapper">
+    <div v-for="notify in notifies">
+      <div class="usernotify-content">
+        <b-card class="usernotify">
+          <div slot="header" class="mb-0 ">
+            <span>用户通知</span>
+            <span class="delete-icon 	fa fa-window-close" @click="deleteNotify(notify._id)"></span>
+          </div>
+          <div class="content" @click="router(notify.url)">{{notify.content}}</div>
+        </b-card>
+        <br>
+      </div>
+    </div>
+  </div>
+  <div class="right-sidebar">
+    <div class="right-menu">
+      <usernav></usernav>
+    </div>
+  </div>
+</div>

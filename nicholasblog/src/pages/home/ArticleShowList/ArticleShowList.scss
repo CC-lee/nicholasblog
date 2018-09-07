@@ -1,0 +1,125 @@
+@import '../../Utils.scss';
+@import '../../Source.scss';
+.main-container {
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #d2d2d2;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #888888;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+.preview-content {
+  height: auto;
+  overflow: hidden;
+}
+.article-pre {
+  background: #fff;
+  padding: 1em;
+}
+.article-pre h1 a {
+  font-size: 1.5rem;
+  color: #fa4b2a;
+  font-weight: 700;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.article-pre p {
+  color: #000;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  margin: 1em 0;
+}
+.article-pre h1 {
+  margin-top: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #aeaeae;
+}
+.tag-link {
+  font-size: 16px;
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+  background: #d43d7d;
+  padding: 0.6em 1.8em;
+  line-height: 1.9em;
+  a {
+    color: #fff;
+  }
+}
+.outerbox {
+  display: flex;
+  margin: 0 0px;
+  max-height: 250px;
+  width: 100%;
+}
+.innerbox {
+  flex: 0 1 50%;
+  overflow: hidden;
+  a {
+    text-decoration: none;
+  }
+}
+.blog-preview-left {
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+  color: #34495e;
+  line-height: 1.6em;
+  padding: 0.1rem 0;
+}
+.blog-preview-right {
+  font-size: 15px;
+  color: #34495e;
+  line-height: 1.6em;
+  span {
+    word-break: break-word;
+  }
+}
+.text {
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+  color: #34495e;
+  line-height: 1.6em;
+  padding: 0.1rem 5px;
+  max-height: 100px;
+  min-height: 30px;
+  overflow: hidden;
+  span {
+    word-break: break-word;
+  }
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==360px {}
+  @else if $size==375px {}
+  @else if $size==414px {
+    .article-pre {
+      background: #fff;
+      padding: 1em 0;
+    }
+    .outerbox {
+      flex-wrap: wrap;
+      max-height: 300px;
+    }
+    .innerbox {
+      flex: 0 1 100%;
+      max-height: 150px;
+    }
+  }
+  @else if $size==568px {}
+  @else if $size==667px {}
+  @else if $size==736px {}
+  @else if $size==768px {}
+  @else if $size==800px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()

@@ -1,0 +1,115 @@
+ul.top-nag {
+  float: left;
+  padding-left: 0px
+}
+ul.top-nag li {
+  display: inline-block;
+  margin-left: 0;
+}
+ul.top-nag a {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 1500;
+  text-transform: uppercase;
+  padding: 10px 10px;
+  background: none;
+  background-color: #4A245E;
+  display: inline-block;
+}
+ul.top-nag a:hover, ul.top-nag a.active {
+  background-color: #3C1D4C;
+}
+ul.top-nag a.active {
+  color: #ffcc00;
+}
+ul.top-nag a.active {
+  color: #ffcc00;
+}
+.top-header {
+  padding: 0em 2em;
+  background: #4a245e;
+}
+.cl-effect-16 a {
+  color: #6f8686;
+  text-shadow: 0 0 1px rgba(111, 134, 134, 0.3);
+}
+.cl-effect-16 a::before {
+  color: #ffcc00;
+  content: attr(data-hover);
+  position: absolute;
+  opacity: 0;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+  -webkit-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+  -moz-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+  transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+  pointer-events: none;
+}
+.cl-effect-16 a:hover::before, .cl-effect-16 a:focus::before {
+  -webkit-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+  -moz-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+  transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+  opacity: 1;
+}
+.search-box {
+  float: right;
+  width: 20%;
+  margin-top: 0.6em;
+}
+.b-search {
+  position: relative;
+  border: 1px solid #5B3A6D;
+  padding: 0.5em 0;
+  background: #5B3A6D;
+}
+.b-search input[type="search"] {
+  outline: none;
+  padding: 0em 0.6em;
+  font-size: 0.9em;
+  color: #fff;
+  position: relative;
+  border: none;
+  width: 100%;
+  background: #5B3A6D;
+}
+.b-search input[type="submit"] {
+  background: url(../../img/frontend/search.png) no-repeat 0px 2px;
+  border: none;
+  height: 100%;
+  width: 15%;
+  position: absolute;
+  outline: none;
+  top: 6px;
+  right: 2px;
+}
+.clearfix:before, .clearfix:after {
+  display: table;
+  content: " ";
+}
+.clearfix:after {
+  clear: both;
+}
+.technology-left {
+  border: 2px solid #a366ff;
+}
+.tech-btm {
+  font-size: 20px;
+  text-align: left;
+  padding: 0.1em 1em;
+  border-bottom: 1px solid #aeaeae;
+}
+.tech-btm h4 {
+  text-align: center;
+  line-height: 1.2em;
+}
+.tech-btm p {
+  font-size: 0.8125em;
+  line-height: 1.5em;
+}
+@media screen and (max-width: 414px) {
+  .b-search input[type="text"] {
+    width: 100%;
+  }
+}

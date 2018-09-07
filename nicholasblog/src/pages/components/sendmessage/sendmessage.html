@@ -1,0 +1,13 @@
+<div>
+  <div id="dropzone" class="dropzone">
+    <froala :tag="'div'" :config="config" v-model="message.content"></froala>
+    <div id="drop-previews"></div>
+  </div>
+  <p id="count">{{ textLength }}/200</p>
+  <button id="input" class="btn btn-sm btn-info fa fa-image upload">
+    上传</button>
+  <div id="button-group">
+    <b-button v-if="uploadable === false" id="upload" variant="primary" disabled>发送</b-button>
+    <b-button v-if="uploadable === true" id="upload" class="able" variant="primary" @click="send()">发送</b-button>
+  </div>
+</div>

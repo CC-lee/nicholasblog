@@ -1,0 +1,44 @@
+@import '../../theme/sass/auth';
+.centre {
+  margin: 0 auto;
+  width: 100%;
+}
+.bg-white {
+  background-color: #fff;
+  font-size: 15px;
+  color: #000;
+}
+.form-group {
+  .input {
+    margin-top: 10px;
+  }
+  .input-name {
+    padding: 10px 0px 0px 0px;
+    p {
+      float: right;
+      font-size: 18px;
+    }
+  }
+}
+.gender{
+  padding-top: 10px;
+  font-size: 15px;
+}
+.button-group {
+  margin-top: 10px;
+  text-align: center;
+}
+@media screen and (max-width: 414px) {
+
+}
+@media screen and (max-width: 812px) {
+  .form-group {
+
+    .input-name {
+      p {
+        float: left;
+        font-size: 1rem;
+      }
+    }
+  }
+}

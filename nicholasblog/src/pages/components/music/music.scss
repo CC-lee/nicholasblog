@@ -1,0 +1,49 @@
+@import '../../Utils.scss';
+@import '../../Source.scss';
+.main-container {
+  
+}
+.main-wrapper {
+  iframe {
+    width: 100%;
+    height: 500px;
+  }
+}
+.main-title {
+  @extend %bartitle;
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==360px {}
+  @else if $size==375px {}
+  @else if $size==414px {}
+  @else if $size==568px {}
+  @else if $size==667px {
+    .main-wrapper {
+      text-align: center;
+      .frame {
+        width: 50vw;
+      }
+    }
+    .main-title {
+      text-align: center;
+    }
+    .main-wrapper {
+      iframe {
+        height: 50px;
+      }
+    }
+  }
+  @else if $size==736px {}
+  @else if $size==768px {}
+  @else if $size==812px {}
+  @else if $size==1024px {
+  }
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()

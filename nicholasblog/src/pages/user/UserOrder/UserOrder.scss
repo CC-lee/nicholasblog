@@ -1,0 +1,141 @@
+@import '../../Utils.scss';
+@import '../../Source.scss';
+.main-container {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.right-sidebar {
+  @extend %userrightsidebar;
+}
+.right-menu {
+  @extend %userrightmenu;
+}
+.main-wrapper {
+  flex: 0 1 70%;
+}
+.main-content {
+  margin: 0 auto;
+  width: 90%;
+  background-color: #F4F4F4;
+}
+.main-bar {
+  padding: 20px 0px;
+  background-color: #a3a3c2;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  display: flex;
+}
+.main-bar h3 {
+  color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+}
+.product {
+  flex: 0 1 70%;
+}
+.product h3 {
+  padding-left: 20px;
+}
+.quantity {
+  flex: 0 1 15%;
+  text-align: left;
+}
+.price {
+  flex: 0 1 15%;
+  text-align: center;
+}
+.clear {
+  overflow: auto;
+  clear: both;
+}
+.items {
+  padding: 10px 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+.item1, .item2, .item3 {
+  padding-top: 10px;
+  border-bottom: 1px solid #000;
+  position: relative;
+}
+.item-content {
+  display: flex;
+}
+.image1 {
+  flex: 0 1 20%;
+}
+.title1 {
+  flex: 0 1 45%;
+  line-height: 1;
+  background-color: #eaeafa;
+  padding:10px 10px;
+  a {
+    text-decoration: none;
+  }
+}
+.price1 {
+  flex: 0 1 20%;
+  text-align: center;
+}
+.option {
+  padding: 10px 10px;
+  border-top: 1px solid #000;
+  margin-top: 10px;
+}
+.quantity1, .quantity2, .quantity3 {
+  width: 15%;
+  float: left;
+  text-align: center;
+}
+.quantity1 input[type="number"], .quantity2 input[type="number"], .quantity3 input[type="number"] {
+  width: 70%;
+  margin-top: 0px;
+  padding: 5px 5px;
+  text-align: center;
+  margin-left: 10px;
+  font-size: 16px;
+  outline: none;
+  border: 2px solid #b6c0c9;
+  border-radius: 5px;
+  color: #27272c;
+}
+.total {
+  padding: 0 50px;
+  float: right;
+}
+.total1, .total2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #47484A;
+  padding: 0 5px;
+}
+.total2 {
+  text-align: right;
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==1024px {}
+  @else if $size==812px {
+    .main-wrapper {
+      flex: 0 1 100%;
+    }
+    .right-sidebar {
+      display: none;
+    }
+  }
+  @else if $size==768px {}
+  @else if $size==736px {}
+  @else if $size==667px {}
+  @else if $size==568px {}
+  @else if $size==414px {}
+  @else if $size==375px {}
+  @else if $size==360px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()

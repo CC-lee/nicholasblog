@@ -1,0 +1,18 @@
+<div ref="whole">
+  <b-modal id="imageModal" ref="imageModal" @hidden="turn" lazy size="lg">
+    <div slot="modal-header"></div>
+    <div class="main-wrapper">
+      <div class="pic-wrapper">
+        <b-img :src="url" alt="pic" class="pic-content" />
+      </div>
+      <div class="text-wrapper">
+        <b-card no-body class="text-content" border-variant="secondary">
+          <div v-html="image.text_content"></div>
+        </b-card>
+        <actions :item="image" :type="'image'" :kind="'main'" style="height:35px"></actions>
+        <comments :item="image" :comment="comments" :type="'image'"></comments>
+      </div>
+    </div>
+    <div slot="modal-footer"></div>
+  </b-modal>
+</div>

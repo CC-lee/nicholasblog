@@ -1,0 +1,51 @@
+<div class="login">
+  <div class="login-background">
+    <h1>请登录</h1>
+    <div class="message warning">
+      <div class="inset agile">
+        <div class="sap_tabs w3ls-tabs">
+          <div id="horizontalTab">
+            <ul class="resp-tabs-list">
+              <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-0" role="tab">
+                <span>
+                  <router-link to="/userLogin" data-hover="登录" class="activeLink">登录</router-link>
+                </span>
+              </li>
+              <li class="resp-tab-item" aria-controls="tab_item-1" role="tab">
+                <label>/</label>
+                <span>
+                  <router-link to="/userReg" data-hover="注册" class="link">注册</router-link>
+                </span>
+              </li>
+            </ul>
+            <div class="clear"> </div>
+            <b-form-group style="margin-bottom:0px">
+              <b-row class="input-contain">
+                <b-col sm="3" class="text-contain">
+                  <label for="input-large" class="text" style="margin-bottom:0px">邮箱地址:</label>
+                </b-col>
+                <b-col sm="9">
+                  <b-form-input class="input" id="input-large" size="lg" style="height: auto" type="text" placeholder="Enter your address" v-model="user.email"></b-form-input>
+                </b-col>
+              </b-row>
+              <b-row class="input-contain">
+                <b-col sm="3" class="text-contain">
+                  <label for="input-password" class="text" style="margin-bottom:0px">密码:</label>
+                </b-col>
+                <b-col sm="9">
+                  <b-form-input class="input" id="input-password" size="lg" style="height: auto" type="password" placeholder="Enter your password" v-model="user.password"></b-form-input>
+                </b-col>
+              </b-row>
+              <div class="status">
+                <b-form-checkbox id="checkbox1" v-model="keepstatus">
+                  保持登录状态
+                </b-form-checkbox>
+              </div>
+            </b-form-group>
+            <button class="signup" @click="login()">登录</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

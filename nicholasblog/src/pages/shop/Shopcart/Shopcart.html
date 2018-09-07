@@ -1,0 +1,63 @@
+<div class="main-container">
+  <div class="main-wrapper">
+    <div class="main-content">
+      <div class="main-bar">
+        <div class="product">
+          <h3>商品</h3>
+        </div>
+        <div class="quantity">
+          <h3>数量</h3>
+        </div>
+        <div class="price">
+          <h3>价格</h3>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="items-container">
+        <div class="item-wrapper" v-for="cart in carts">
+          <div class="item-content">
+            <!-- Remove-Item -->
+
+            <!-- //Remove-Item -->
+            <div class="item-image">
+              <img :src="cart.item_img" alt="item1" width="100%" height="100">
+            </div>
+            <div class="title1">
+              <a href="javascript:;" @click="router(cart.item_id)">{{cart.item_name}}</a>
+              <div class="option">
+                <p>商品选项:</p>
+                <p v-for="option in cart.item_option">{{option.name}}: {{option.value}}</p>
+              </div>
+            </div>
+            <div class="quantity1">
+              <form>
+                <input type="number" name="quantity" min="1" max="100" v-model="cart.quantity" @blur="count(cart)" @click="check(cart)">
+              </form>
+            </div>
+            <div class="price1">
+              <span>$ {{cart.quantity*cart.unit_price}}</span>
+              <span class="alert-close1 fa fa-close" @click="deleteCartInfo(cart)"></span>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      <div class="total">
+        <div class="total1">总价</div>
+        <div class="total2">$ {{total}}</div>
+        <div class="clear"></div>
+      </div>
+      <div class="checkout">
+        <div class="checkout-btn" @click="createOrder">
+          <a href="javascript:;">结算</a>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="right-sidebar">
+    <div class="right-menu">
+      <usernav></usernav>
+    </div>
+  </div>
+</div>

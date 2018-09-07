@@ -1,0 +1,17 @@
+.text {}
+.text p {
+  font-size: 16px;
+  margin: 0 auto;
+  line-height: 150%;
+  color: #000000;
+}
+.para {
+  margin: 0 auto;
+}
+.code {
+  background-color: lightgray;
+  white-space: pre;
+}
+pre{
+  font-size: 16px;
+}

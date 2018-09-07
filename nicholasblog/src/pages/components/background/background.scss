@@ -1,0 +1,27 @@
+@import '../../Utils.scss';
+@import '../../Source.scss';
+.main-container{
+
+}
+#backgroundframe{
+  text-align: left;
+  padding:20px 20px;
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==360px {}
+  @else if $size==375px {}
+  @else if $size==414px {}
+  @else if $size==568px {}
+  @else if $size==667px {}
+  @else if $size==736px {}
+  @else if $size==768px {}
+  @else if $size==800px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizeIndex)
+    }
+  }
+}
+// @include mediacyc()

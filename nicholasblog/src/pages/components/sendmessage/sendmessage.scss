@@ -1,0 +1,26 @@
+#button-group {
+  margin-top: 5px;
+  float: right;
+  cursor: pointer;
+}
+.upload {
+  min-height: 0px;
+  padding: 5px 5px;
+  width: 60px;
+  height: 30px;
+  margin-top: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.editor {
+  position: absolute;
+  top: 0;
+  z-index: 10000
+}
+#upload {
+  cursor: no-drop;
+  &.able {
+    border: 2px solid black;
+    cursor: pointer
+  }
+}

@@ -1,0 +1,34 @@
+<div class="main-container">
+  <div class="col-md-12">
+    <div class="article-pre">
+      <h1>
+        <router-link :to="{path:`/article/${article_id}`}">{{title}}</router-link>
+      </h1>
+      <span class="tag-link">
+        <router-link :to="{path:`/search/tags/${classify}`}">{{classify}}</router-link>
+      </span>
+      <div v-if="theme_img.length > 0" class="preview-content">
+        <div class="outerbox" @touchstart="touchEnter()" @touchmove="cancelEnter()" @touchend="touchRouter(`/article/${article_id}`)">
+          <div class="innerbox blog-preview-left">
+            <img :src="theme_img" width="300">
+          </div>
+          <div class="innerbox">
+            <div class="blog-preview-right">
+              <span> {{article_preview}} ...</span>
+              <router-link :to="{path:`/article/${article_id}`}">查看原文</router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-else class="preview-content">
+        <div class="outerbox" @touchstart="touchEnter()" @touchmove="cancelEnter()" @touchend="touchRouter(`/article/${article_id}`)">
+          <div class="text">
+            <span> {{article_preview}} ...</span>
+            <router-link :to="{path:`/article/${article_id}`}">查看原文</router-link>
+          </div>
+        </div>
+      </div>
+      <actions :item="item" :type="type" :kind="kind" style="height:30px; width:550px"></actions>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+.box {
+  margin-top: 10px;
+}
+#button-group {
+  margin-top: 10px;
+  text-align: center;
+}
+.centre {
+  margin: 0 auto;
+}
+.img {
+  flex: 1 1;
+  height: 200px;
+  width:25%;
+  padding: 0 5px;
+}
+.image {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width:100%;
+}
+@media screen and (max-width: 414px) {
+  .image {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .img {
+    flex: 1 1;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 812px) {
+  .image {
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+  }
+  .img {
+    flex: 0 1 50%;
+  }
+}

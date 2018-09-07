@@ -1,0 +1,9 @@
+<div class="commentAll">
+  <div class="reviewArea clearfix">
+    <textarea id="area" class="content comment-input" placeholder="请输入评论" @keyup="keyUP($event)" @paste="keyUP($event)"></textarea>
+    <a href="javascript:;" class="plBtn">评论</a>
+  </div>
+  <div class="comment-show" v-html="commenthtml">
+
+  </div>
+</div>

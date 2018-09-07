@@ -1,0 +1,39 @@
+<div class="main-container">
+  <div class="main-wrapper">
+    <div class="search-frame">
+      <div class="search-input">
+        <v-autocomplete ref="autocomplete" :items="completeitems" v-model="completeitem" @input="inputUpdate" @focus="focusFun" @blur="blurFun"
+          :wait="0" :auto-select-one-item="false" :get-label="getLabel" :component-item="template" @change="updateItems">
+        </v-autocomplete>
+      </div>
+      <button v-if="searchButtonActive" class="search-button" @click="getClassBySearch">搜索标签</button>
+      <button v-if="searchButtonActive===false" class="search-button" disabled>搜索标签</button>
+    </div>
+    <div class="tags-wrapper">
+      <ul class="tags-content">
+        <li v-for="(item,index) in items">
+          <router-link v-if="item.classify!=='Resume'"  class="tag_btn" :to="`/tags/${item._id}`" @click.prevent="gets(index,item.classify)" :class="{'active':index==selected}">{{item.classify}}</router-link>
+        </li>
+      </ul>
+    </div>
+    <div class="articlesl">
+      <transition-group name="list" tag="div">
+        <articlesl v-for="item in articleLists" :item="item" v-if="show" :key="item._id"></articlesl>
+        <!--每个 <transition-group> 的子节点必须有 独立的key ，动画才能正常工作-->
+      </transition-group>
+    </div>
+    <div class="loadMore">
+      <button class="buttonload" v-if="loadMoreShow">
+        <i class="fa fa-circle-o-notch fa-spin"></i>加载中
+      </button>
+    </div>
+  </div>
+  <div class="right-sidebar">
+    <div class="about-bar">
+      <aboutme></aboutme>
+    </div>
+    <div class="message-bar">
+      <updateinfo></updateinfo>
+    </div>
+  </div>
+</div>

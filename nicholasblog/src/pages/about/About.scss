@@ -1,0 +1,235 @@
+@import '../Utils.scss';
+@import '../Source.scss';
+.about-wrapper {
+  margin: auto;
+  background-color: #fff;
+  padding-bottom: 10px;
+  width: 100%;
+  background-color: #474e5d;
+  font-family: Helvetica, sans-serif;
+  a {
+    color: #4078c0;
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    font-size: 1.2rem;
+  }
+  a:first-child {
+    padding-left: 0;
+  }
+  /deep/ p {
+    font-size: 1.2rem;
+    line-height: 150%;
+  }
+  a, p, h2 {
+    margin: 1rem auto;
+  }
+  h2 {
+    /*font-weight: 400;*/
+    /*font-size: 1.5rem;*/
+    align-self: center;
+    /*margin-top: 2rem;*/
+  }
+}
+/* The actual timeline (the vertical ruler) */
+
+.timeline {
+  position: relative;
+  max-width: 100%;
+  margin: 0 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+/* The actual timeline (the vertical ruler) */
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  /*50%*/
+  margin-left: 0;
+  /*-3px*/
+}
+/* contain around content */
+
+.contain {
+  padding: 10px 5%;
+  position: relative;
+  background-color: inherit;
+  /*width: 50%;*/
+  flex: 0 1 100%;
+  margin-bottom: 10px;
+}
+.half-contain {
+  flex: 0 1 50%;
+}
+/* The circles on the timeline */
+
+/* Place the contain to the left */
+
+.left {
+  left: 0;
+}
+/* Place the contain to the right */
+
+.right {
+  left: 0;
+  /* 50% */
+}
+.content {
+  padding: 20px 6%;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  h5 {
+    border-bottom: 1px solid #ccc;
+  }
+}
+.tab {
+  overflow: hidden;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  div {
+    flex: 1 1 auto;
+    background-color: #f1f1f1;
+  }
+}
+.tab button {
+  background-color: #f1f1f1;
+  /*inherit transparent*/
+  /*float: left;*/
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  /*transition: 0.3s;*/
+  font-size: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  flex: 0 1 auto;
+}
+.tab button::before {
+  content: '';
+  position: absolute;
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid transparent;
+  width: 99.5%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(100%);
+}
+.tab button::after {
+  content: '';
+  position: absolute;
+  width: 99.5%;
+  height: 0;
+  top: 0;
+  right: 0;
+  border-top: 2px solid transparent;
+  border-right: 2px solid transparent;
+  transform: translateX(-100%);
+}
+/* Change background color of buttons on hover */
+
+.tab button:hover {
+  background-color: #ddd;
+}
+/* Create an active/current tablink class */
+
+.tab button:hover::before {
+  transition: .1s transform linear, .1s height linear .1s;
+  height: 100%;
+  border-color: #1fbfac;
+  transform: translateX(0);
+}
+.tab button:hover::after {
+  transition: .1s transform linear .2s, .1s height linear .3s;
+  height: 100%;
+  border-color: #1fbfac;
+  transform: translateX(0);
+}
+.tab button.active {
+  font-weight: bold;
+  background-color: transparent;
+}
+.tab-header {
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+.gradient-background {
+  background: linear-gradient(313deg, #bee2d9, #dcc86c, #6c6cdc, #6cd9dc);
+  background-size: 800% 800%;
+  animation: AnimationName 15s ease infinite;
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 84%
+  }
+  50% {
+    background-position: 100% 17%
+  }
+  100% {
+    background-position: 0% 84%
+  }
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==360px {}
+  @else if $size==375px {}
+  @else if $size==414px {}
+  @else if $size==568px {}
+  @else if $size==667px {}
+  @else if $size==736px {}
+  @else if $size==768px {}
+  @else if $size==812px {
+    h1 {
+      font-size: 2rem*0.8;
+    }
+    h2 {
+      font-size: 1.5rem*0.8;
+    }
+    h3 {
+      font-size: 1.17rem*0.8;
+    }
+    h4 {
+      font-size: 1.12rem*0.8;
+    }
+    h5 {
+      font-size: .83rem*0.8;
+    }
+    h6 {
+      font-size: .75rem*0.8;
+    }
+    .tab button {
+      font-size: 1.2rem*0.8;
+    }
+    .about-wrapper {
+      /deep/ p {
+        font-size: 1.2rem*0.8;
+      }
+      /deep/ li {
+        font-size: 1rem*0.8;
+      }
+      /deep/ div {
+        font-size: 1rem*0.8;
+      }
+    }
+  }
+  @else if $size==1024px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc();

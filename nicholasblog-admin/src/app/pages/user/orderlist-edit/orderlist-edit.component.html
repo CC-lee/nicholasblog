@@ -1,0 +1,54 @@
+<div class="widgets">
+  <div class="col-md-7 centre">
+    <div class="main-bar">
+      <div class="product">
+        <h3>商品</h3>
+      </div>
+      <div class="quantity">
+        <h3>数量</h3>
+      </div>
+      <div class="price">
+        <h3>价格</h3>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="items">
+      <div class="item1" *ngFor="let list of lists">
+        <div class="item-content">
+          <div class="image1">
+            <img [src]="list.item_img" alt="item1" width="100" height="100">
+          </div>
+          <div class="title1">
+            <a href="javascript:;">{{list.item_name}}</a>
+            <div class="option">
+              <p>商品选项:</p>
+              <p *ngFor="let option of list.item_option">{{option.name}}: {{option.value}}</p>
+            </div>
+          </div>
+          <div class="quantity1">
+            {{list.quantity}}
+          </div>
+          <div class="price1">
+            <p>$ {{list.price}}</p>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="total-container">
+      <div class="total-wrapper">
+        <span>总价</span>
+        <div class="total2" *ngIf="total>0">$
+          <input class="bg-white" type="text" [value]="total" [(ngModel)]="total" size="7">
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div id="button-group">
+      <button class="btn btn-sm btn-info" (click)="updateOrder()">
+        <span class="fa fa-cloud-upload"></span> 更新</button>
+      <button class="btn btn-sm btn-danger" (click)="cancleUpdate()">
+        <span class="fa fa-remove"></span> 取消</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="about-wrapper">
+  <div style='padding-left:0px'>
+    <div class="gradient-background">
+      <div class="tab-header">
+        <h1>{{text}}</h1>
+        <h4>{{english}}</h4>
+      </div>
+      <div class="tab">
+        <div></div>
+        <button :class="active==='简历信息' ? 'active' : ''" @click="changeStatus($event, resume)">简历</button>
+        <button :class="active==='个人网站项目介绍' ? 'active' : ''" @click="changeStatus($event, website)">个人网站项目介绍</button>
+        <button :class="active==='JS插件项目介绍' ? 'active' : ''" @click="changeStatus($event, plugin)">JS插件项目介绍</button>
+        <div></div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="half-contain">
+        <div class="contain left" v-for="context in center.contentLeft">
+          <div class="content">
+            <h3>{{context.title}}</h3>
+            <h5>-- {{context.engtitle}}</h5>
+            <div v-html="context.content"></div>
+          </div>
+        </div>
+      </div>
+      <div class="half-contain">
+        <div class="contain right" v-for="context in center.contentRight">
+          <div class="content">
+            <h3>{{context.title}}</h3>
+            <h5>-- {{context.engtitle}}</h5>
+              <div v-html="context.content"></div>
+            </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

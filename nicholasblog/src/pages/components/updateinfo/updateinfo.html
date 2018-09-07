@@ -1,0 +1,14 @@
+<div>
+  <div class="main-title">
+    最新留言
+  </div>
+  <div id="demo" class="box scroll-text">
+    <ul>
+      <li v-for="preview in previews" class="preview">
+        <div><b>@{{preview.user_name}}的留言：</b></div>
+        <p>{{preview.message_preview}}...</p>
+        <a href="javascript:;" @click="router(preview.message_id)">查看留言</a>
+      </li>
+    </ul>
+  </div>
+</div>

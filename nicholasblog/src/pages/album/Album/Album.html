@@ -1,0 +1,14 @@
+<div class="main-container">
+  <div class="album-container" v-for="item in items">
+    <div class="album-wrapper">
+      <b-img-lazy :src="item.image_preview" class="album-thumb" alt="pic" />
+      <div class="album-cover" @click="router(item.image_id)">
+        <div class="cover-content">
+          <i class="fa fa-comments"> {{item.comment_num}}</i>
+          <i class="fa fa-heart"> {{item.like_num}}</i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-view></router-view>
+</div>

@@ -1,0 +1,44 @@
+<div *ngIf="selectShow">
+  <div *ngFor="let selectItem of selectItems; let ix = index">
+    <div class="col-md-4 centre top">
+      <select class="form-control bg-white" name="choice" [(ngModel)]="selectItem.selectKind.choice" [(ngModel)]="selectItem.item_option.select">
+        <option *ngFor="let n of selectItem.kind">{{n}}</option>
+      </select>
+    </div>
+    <form *ngIf="selectItem.selectKind.category" class="col-md-12 centre top">
+      <div class="form-group row">
+        <div class="col-md-1 input-name">
+          <p>名称</p>
+        </div>
+        <div class="col-md-2">
+          <input class="form-control bg-white" type="text" name="kindName" [(ngModel)]="selectItem.item_option.kindOption.name">
+        </div>
+        <div class="col-md-1 input-name">
+          <p>种类定义</p>
+        </div>
+        <div class="col-md-5">
+          <input class="form-control bg-white" type="text" name="kind" [(ngModel)]="selectItem.category">
+        </div>
+        <div class="col-md-3 example">
+          例子：型号1,型号2,型号3
+        </div>
+      </div>
+    </form>
+    <div *ngIf="selectItem.selectKind.color" class="form-group row centre top">
+      <div class="col-md-4 input-name">
+        <p>颜色名称</p>
+      </div>
+      <div class="col-md-5">
+        <input class="form-control bg-white" type="text" [(ngModel)]="selectItem.item_option.colorName">
+      </div>
+    </div>
+    <div *ngIf="selectItem.selectKind.color" class="row col-md-12 centre top">
+
+      <div *ngFor="let color of colorArr" class="col-md-1 centre selectItem">
+        <input type="checkbox" [attr.value]="color" [attr.id]="color + ix" [attr.class]="color" (click)="selectItem.change($event)"
+          [(ngModel)]="selectItem.colorObj[color].show" />
+        <label [attr.for]="color + ix" class="col-md-12"></label>
+      </div>
+    </div>
+  </div>
+</div>

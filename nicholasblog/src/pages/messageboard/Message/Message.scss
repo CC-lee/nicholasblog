@@ -1,0 +1,71 @@
+@import '../../Utils.scss';
+@import '../../Source.scss';
+.text {
+  padding: 0 5px;
+  font-size: 15px;
+}
+.image {
+  width: 200px;
+  height: 200px;
+}
+.fr-emoticon-img {
+  background-repeat: no-repeat !important;
+  font-size: 15px;
+  height: 1em;
+  width: 1em;
+  min-height: 20px;
+  min-width: 20px;
+  display: inline-block;
+  margin: -0.1em 0.1em 0.1em;
+  line-height: 1;
+  vertical-align: middle
+}
+.message-images {
+  display: flex;
+  display: -webkit-flex;
+  width: 100%;
+}
+.message-image {
+  padding: 0 5px;
+  flex: 0 1 auto;
+  width: 25%;
+  height: 200px;
+}
+.message-name {
+  font-size: 1.2rem;
+  padding-left: 8%;
+  white-space: nowrap;
+  .admin {
+    border-radius: 25px;
+    background-color: rgb(238, 88, 88);
+    padding: 5% 10%;
+  }
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==1024px {}
+  @else if $size==812px {}
+  @else if $size==768px {}
+  @else if $size==736px {}
+  @else if $size==667px {}
+  @else if $size==568px {}
+  @else if $size==414px {
+    .message-images {
+      flex-wrap: wrap;
+    }
+    .message-image {
+      padding: 5px 5px;
+      width: 50%;
+      height: 150px;
+    }
+  }
+  @else if $size==375px {}
+  @else if $size==360px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()

@@ -1,0 +1,29 @@
+<div class="widgets box" (click)="gets($event)" id="imageCreate">
+  <div class="col-md-10 centre">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-5">
+          <ba-card cardTitle="图片创建" baCardClass="with-nonscroll">
+            <dropzone #droper [config]="config" class="col-md-12" [message]="'点击或把图片拖动到此处'" style="background-color:#5FA3D6;padding: 0px 0px">
+              <div id="drop-previews"></div>
+            </dropzone>
+          </ba-card>
+        </div>
+        <div class="col-md-6">
+          <ba-card cardTitle="图片文字内容" baCardClass="with-scroller">
+            <textarea [froalaEditor]="options" [(ngModel)]="imageTemp.text_content"></textarea>
+            <p id="count">{{ textLength }}/200</p>
+          </ba-card>
+          <div id="button-group">
+            <button class="btn btn-sm btn-info" disabled="true" id="updateTemp" #updateTemp>
+              <span class="fa fa-save"></span> 保存</button>
+            <button class="btn btn-sm btn-info" disabled="true" id="uploadImage" #uploadImage>
+              <span class="fa fa-cloud-upload"></span> 提交</button>
+            <button class="btn btn-sm btn-danger" id="cancleUpload">
+              <span class="fa fa-remove"></span> 取消</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

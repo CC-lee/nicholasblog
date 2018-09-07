@@ -1,0 +1,15 @@
+<div class="widgets box">
+  <div class="col-md-6 centre">
+    <ba-card cardTitle="分类名称" baCardClass="with-scroll ">
+      <form>
+        <input id="title" class="form-control bg-white" type="text" name="title" [(ngModel)]="classify.classify">
+      </form>
+      <div id="button-group">
+        <button class="btn btn-sm btn-info" (click)="updateClass()">
+          <span class="fa fa-cloud-upload" id="updateIcon"></span> 更新</button>
+        <button class="btn btn-sm btn-danger" (click)="cancleUpdate()">
+          <span class="fa fa-remove" id="cancleUpload"></span> 取消</button>
+      </div>
+    </ba-card>
+  </div>
+</div>

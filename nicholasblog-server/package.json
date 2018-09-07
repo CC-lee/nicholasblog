@@ -1,0 +1,64 @@
+{
+  "name": "nicholasblog-server",
+  "version": "0.0.0",
+  "description": "The server part of nicholasblog",
+  "author": "Nicholas Lee",
+  "scripts": {
+    "dev": "cross-env NODE_ENV='dev' supervisor app",
+    "start": "cross-env NODE_ENV='prod' node app",
+    "start-d": "cross-env NODE_ENV='deploy' node app"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.1",
+    "express-jwt": "^5.1.0",
+    "fs": "0.0.1-security",
+    "fs-extra": "^4.0.2",
+    "fs-jetpack": "^1.2.0",
+    "jsonwebtoken": "^7.2.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1",
+    "mongoose": "^5.1.3",
+    "multer": "^1.3.0",
+    "rxjs": "^6.2.0",
+    "rxjs-compat": "^6.2.2",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chalk": "^1.1.3",
+    "cross-env": "^3.1.3",
+    "cross-spawn": "^4.0.2",
+    "eslint": "^3.7.1",
+    "eslint-config-standard": "^6.1.0",
+    "eslint-friendly-formatter": "^2.0.5",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-html": "^1.3.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "karma": "^1.3.0",
+    "karma-coverage": "^1.1.1",
+    "karma-mocha": "^1.2.0",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sinon-chai": "^0.3.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.26",
+    "mocha": "^3.1.0",
+    "mockjs": "^1.0.1-beta3",
+    "module-alias": "^2.0.6",
+    "proxylistenerjs": "^0.0.3",
+    "selenium-server": "2.53.1",
+    "sharp": "^0.18.4",
+    "sinon": "^2.1.0",
+    "sinon-chai": "^2.8.0"
+  },
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@deep": "src/some"
+  }
+}

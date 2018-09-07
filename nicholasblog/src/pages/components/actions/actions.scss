@@ -1,0 +1,70 @@
+@import '../../Utils.scss';
+@import '../../Source.scss';
+.blog-info {
+  border-top: 1px solid #aeaeae;
+  padding: 0.5em 0;
+  text-align: left;
+  overflow: hidden;
+  font-size: 0.9em;
+}
+.blog-info ul {
+  padding-left: 0px;
+}
+.blog-info ul li {
+  display: inline-table;
+  margin-right: 1em;
+}
+.blog-info ul li {
+  vertical-align: middle;
+}
+.blog-info li i {
+  margin-right: 0.3em;
+  vertical-align: middle;
+}
+.blog-info ul li a {
+  color: #000;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  vertical-align: middle;
+}
+.blog-info ul li a:hover {
+  text-decoration: none;
+}
+.act-comment {
+  color: #aeaeae;
+}
+.fa.fa-heart.active {
+  color: red;
+}
+.fa.fa-heart {
+  color: #aeaeae;
+}
+@mixin mediajudge($size, $sizenum) {
+  @if $size==360px {}
+  @else if $size==375px {}
+  @else if $size==414px {}
+  @else if $size==568px {}
+  @else if $size==667px {
+    .blog-info {
+      font-size: 0.7em;
+    }
+    .blog-info ul li {
+      margin-right: 0.5em;
+    }
+  }
+  @else if $size==736px {}
+  @else if $size==768px {}
+  @else if $size==812px {
+  }
+  @else if $size==1024px {}
+}
+@mixin mediacyc() {
+  @each $size, $sizenum in $screensize {
+    @media screen and (max-width: $size) {
+      @include mediajudge($size, $sizenum)
+    }
+  }
+}
+@include mediacyc()
