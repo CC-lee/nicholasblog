@@ -145,10 +145,11 @@ class bArticle extends control {
       .then((result) => {
         var { _id: articleId } = result[0]
         jetpack.rename(`${fileFolderName}/article/${this.dateid}`, `${articleId}`);
+        Object.assign(this.preview, { article_id: `${articleId}` })
         if (this.theme_img) {
           urlReplaceString(this.theme_img)
           Object.assign(this.preview, {
-            article_id: `${articleId}`, theme_img: this.theme_img
+            theme_img: this.theme_img
               .replace(reg, `/${articleId}/thumbnail/`)
               .replace(/\.(jpg|pdf|JPG|png)/ig, 'm.jpg')
               .replace(fileReg, '')

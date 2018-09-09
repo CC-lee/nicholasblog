@@ -5,6 +5,10 @@
   line-height: 150%;
   color: #000000;
 }
+.text li {
+  font-size: 1rem;
+  line-height: 150%;
+}
 .para {
   margin: 0 auto;
 }

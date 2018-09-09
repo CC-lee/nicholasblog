@@ -38,11 +38,11 @@ module.exports = {
     if (page && limit) {
       var skip = (page - 1) * limit
       return Promise.all([
-        ArticlePreview.find({ classify: { $ne: '置顶' } }).sort({ create_date: -1 }).skip(skip).limit(limit),
-        ArticlePreview.count({ classify: { $ne: '置顶' } })
+        ArticlePreview.find({ classify: { $nin: ['置顶', 'Node.js'] } }).sort({ create_date: -1 }).skip(skip).limit(limit),
+        ArticlePreview.count({ classify: { $nin: ['置顶', 'Node.js'] } })
       ])
     } else {
-      return ArticlePreview.find({ classify: { $ne: '置顶' } }).sort({ create_date: -1 })
+      return ArticlePreview.find({ classify: { $nin: ['置顶', 'Node.js'] } }).sort({ create_date: -1 })
     }
   },
   getTopPreview: ({ page, limit }) => {
@@ -68,7 +68,7 @@ module.exports = {
       return Article.find({ $or: key }).sort({ create_date: -1 })
     }
   },
-  getResumeArticles:()=>{
+  getResumeArticles: () => {
     return Article.find({ classify: 'Resume' }).sort({ create_date: -1 })
   },
   // 获取一个预览
