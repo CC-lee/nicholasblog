@@ -16,10 +16,10 @@ export const routes: Routes = [
     canActivateChild: [AuthGuardService],
     children: [
       { path: '', redirectTo: 'albummanage', pathMatch: 'full' },
-      { path: 'albummanage', component: AlbumManageComponent },
-      { path: 'imagecreate', component: ImageCreateComponent },
-      { path: 'imageedit/:id', component: ImageEditComponent },
-      { path: 'imagecomment/:id', component: ImageCommentComponent }
+      { path: 'albummanage', component: AlbumManageComponent, data: { title: '相册管理' } },
+      { path: 'imagecreate', component: ImageCreateComponent, data: { title: '图片创建' } },
+      { path: 'imageedit/:id', component: ImageEditComponent, data: { title: '图片编辑' } },
+      { path: 'imagecomment/:id', component: ImageCommentComponent, data: { title: '图片评论' } }
     ]
   }
 ];

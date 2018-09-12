@@ -15,11 +15,11 @@ export const routes: Routes = [
     canActivateChild: [AuthGuardService],
     children: [
       { path: '', redirectTo: 'messagemanage', pathMatch: 'full' },
-      { path: 'adminmessagemanage', component: AdminMessageManageComponent },
-      { path: 'usermessagemanage', component: UserMessageManageComponent },
-      { path: 'adminmessagecreate', component: AdminMessageCreateComponent },
-      { path: 'adminmessageedit/:id', component: AdminMessageEditComponent },
-      { path: 'messagecomment/:id', component: MessageCommentComponent }
+      { path: 'adminmessagemanage', component: AdminMessageManageComponent, data: { title: '管理者信息管理' } },
+      { path: 'usermessagemanage', component: UserMessageManageComponent, data: { title: '用户信息管理' } },
+      { path: 'adminmessagecreate', component: AdminMessageCreateComponent, data: { title: '管理者信息创建' } },
+      { path: 'adminmessageedit/:id', component: AdminMessageEditComponent, data: { title: '管理者信息编辑' } },
+      { path: 'messagecomment/:id', component: MessageCommentComponent, data: { title: '信息评论' } }
     ]
   }
 ];

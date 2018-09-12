@@ -13,9 +13,9 @@ export const routes: Routes = [
     canActivateChild: [AuthGuardService],
     children: [
       { path: '', redirectTo: 'classmanage', pathMatch: 'full' },
-      { path: 'classmanage', component: ClassManageComponent },
-      { path: 'classcreate', component: ClassCreateComponent },
-      { path: 'classedit/:id', component: ClassEditComponent }
+      { path: 'classmanage', component: ClassManageComponent, data: { title: '分类管理' } },
+      { path: 'classcreate', component: ClassCreateComponent, data: { title: '分类创建' } },
+      { path: 'classedit/:id', component: ClassEditComponent, data: { title: '分类编辑' } }
     ]
   }
 ];

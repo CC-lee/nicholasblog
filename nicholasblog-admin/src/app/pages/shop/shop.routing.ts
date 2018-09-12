@@ -13,9 +13,9 @@ export const routes: Routes = [
     canActivateChild: [AuthGuardService],
     children: [
       { path: '', redirectTo: 'shopmanage', pathMatch: 'full' },
-      { path: 'shopmanage', component: ShopManageComponent },
-      { path: 'itemcreate', component: ItemCreateComponent },
-      { path: 'itemedit/:id', component: ItemEditComponent }
+      { path: 'shopmanage', component: ShopManageComponent, data: { title: '商品管理' } },
+      { path: 'itemcreate', component: ItemCreateComponent, data: { title: '商品创建' } },
+      { path: 'itemedit/:id', component: ItemEditComponent, data: { title: '商品编辑' } }
     ]
   }
 ];

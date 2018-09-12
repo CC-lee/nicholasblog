@@ -15,10 +15,10 @@ export const routes: Routes = [
     canActivateChild: [AuthGuardService],
     children: [
       { path: '', redirectTo: 'articlemanage', pathMatch: 'full' },
-      { path: 'articlemanage', component: ArticleManageComponent },
-      { path: 'articlecreate', component: ArticleCreateComponent },
-      { path: 'articleedit/:id', component: ArticleEditComponent },
-      { path: 'articlecomment/:id', component: ArticleCommentComponent }
+      { path: 'articlemanage', component: ArticleManageComponent, data: { title: '文章管理' } },
+      { path: 'articlecreate', component: ArticleCreateComponent, data: { title: '文章创建' } },
+      { path: 'articleedit/:id', component: ArticleEditComponent, data: { title: '文章编辑' } },
+      { path: 'articlecomment/:id', component: ArticleCommentComponent, data: { title: '文章评论' } }
     ]
   }
 ];

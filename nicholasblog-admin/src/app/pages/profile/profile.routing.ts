@@ -6,7 +6,8 @@ const routes: Routes = [
   {
     path: '',
     component: ProfileComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    data: { title: '管理者信息' }
   }
 ];
 

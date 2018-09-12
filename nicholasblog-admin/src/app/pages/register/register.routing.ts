@@ -6,7 +6,8 @@ import { Register } from './register.component';
 const routes: Routes = [
   {
     path: '',
-    component: Register
+    component: Register,
+    data: { title: '注册' }
   }
 ];
 

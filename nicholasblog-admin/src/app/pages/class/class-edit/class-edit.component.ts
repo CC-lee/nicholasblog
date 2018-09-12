@@ -53,6 +53,7 @@ export class ClassEditComponent implements OnInit {
       function (res) {
         const { _id, classify } = res.data;
         Object.assign(this.classify, { _id, classify });
+        document.title = `${this.classify.classify} -分类编辑`
       },
       null
     );
